@@ -42,12 +42,15 @@
     }
 
     /* =========================
-       HEADER
+       MAIN WEBSITE HEADER
+       FIXED
     ========================= */
 
-    header {
+    body > header {
       position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 100;
       background: rgba(8,9,13,0.88);
       backdrop-filter: blur(18px);
@@ -101,13 +104,24 @@
     .article-page {
       max-width: var(--max-width);
       margin: auto;
-      padding: 70px 24px 100px;
+
+      /* Space for fixed website header */
+      padding: 140px 24px 100px;
     }
+
+    /* =========================
+       ARTICLE HEADER
+       NORMAL / NOT FIXED
+    ========================= */
 
     .article-header {
       max-width: 900px;
       margin: 0 auto 45px;
       text-align: center;
+
+      /* IMPORTANT:
+         This header is NOT fixed */
+      position: relative;
     }
 
     .category-label {
@@ -437,7 +451,8 @@
       }
 
       .article-page {
-        padding: 45px 17px 70px;
+        /* Space for fixed mobile header */
+        padding: 105px 17px 70px;
       }
 
       .article-title {
@@ -570,11 +585,12 @@
 
     document.title = `${article.title} — TechTek101`;
 
-
     const icon = article.icon || defaultIcon;
 
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     let heroHTML = "";
 
@@ -598,7 +614,9 @@
     }
 
 
-    /* CONTENT */
+    /* =========================
+       CONTENT
+    ========================= */
 
     document.getElementById("app").innerHTML = `
 
