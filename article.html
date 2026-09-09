@@ -1,1582 +1,729 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Article — TechTek101</title>
-
-  <meta
-    name="description"
-    content="Technology stories and analysis from TechTek101."
-  >
+  <title>TechTek101</title>
 
   <style>
-
     :root {
-      --bg: #07090d;
-      --bg-soft: #0d1016;
-      --card: #11151d;
-
+      --bg: #08090d;
+      --surface: #101218;
+      --surface-2: #151821;
       --text: #f5f7fb;
-      --muted: #8e97a8;
-
-      --border: rgba(255,255,255,.08);
-
-      --accent: #6c63ff;
-      --accent-2: #00d4ff;
-
-      --max-width: 900px;
-
-      --shadow:
-        0 20px 60px rgba(0,0,0,.35);
+      --muted: #9ca3b4;
+      --border: rgba(255,255,255,0.08);
+      --accent: #7c5cff;
+      --max-width: 1100px;
+      --shadow: 0 25px 80px rgba(0,0,0,0.35);
     }
-
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-
 
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
-
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-      background:
-
-        radial-gradient(
-          circle at 80% 0%,
-          rgba(108,99,255,.13),
-          transparent 30%
-        ),
-
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(0,212,255,.06),
-          transparent 25%
-        ),
-
-        var(--bg);
-
+      background: var(--bg);
       color: var(--text);
-
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
-
-      min-height: 100vh;
     }
-
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-
-    .container {
-      width: min(92%, var(--max-width));
-      margin: auto;
-    }
-
-
     /* =========================
        HEADER
-       ========================= */
+    ========================= */
 
     header {
-
-      position: fixed;
-
+      position: sticky;
       top: 0;
-      left: 0;
-
-      width: 100%;
-
-      z-index: 1000;
-
-      backdrop-filter:
-        blur(18px);
-
-      background:
-        rgba(7,9,13,.82);
-
-      border-bottom:
-        1px solid rgba(255,255,255,.05);
+      z-index: 100;
+      background: rgba(8,9,13,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
     }
 
-
-    .navbar {
-
-      height: 76px;
+    .nav {
+      max-width: var(--max-width);
+      margin: auto;
+      min-height: 72px;
+      padding: 0 24px;
 
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
+      gap: 30px;
     }
-
 
     .logo {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      font-size: 23px;
-
+      font-size: 22px;
       font-weight: 800;
-
-      letter-spacing: -.8px;
+      letter-spacing: -0.8px;
+      white-space: nowrap;
     }
 
-
-    .logo-mark {
-
-      width: 35px;
-      height: 35px;
-
-      border-radius: 10px;
-
-      display: grid;
-
-      place-items: center;
-
-      background:
-
-        linear-gradient(
-          135deg,
-          var(--accent),
-          var(--accent-2)
-        );
-
-      color: white;
-
-      font-size: 16px;
-
-      font-weight: 900;
-
-      box-shadow:
-        0 0 25px rgba(108,99,255,.35);
+    .logo span {
+      color: var(--accent);
     }
-
-
-    .logo em {
-
-      color:
-        var(--accent-2);
-
-      font-style: normal;
-    }
-
 
     .nav-links {
-
       display: flex;
-
-      gap: 30px;
-
-      list-style: none;
-
-      color: #aeb6c5;
-
-      font-size: 14px;
-
-      font-weight: 600;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
     }
 
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.2s;
+    }
 
     .nav-links a:hover {
       color: white;
     }
 
-
     /* =========================
        ARTICLE
-       ========================= */
+    ========================= */
 
-    main {
-      padding-top: 76px;
+    .article-page {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 70px 24px 100px;
     }
-
 
     .article-header {
-
-      padding:
-        100px 0 45px;
+      max-width: 900px;
+      margin: 0 auto 45px;
+      text-align: center;
     }
 
+    .category-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
 
-    .back {
+      padding: 7px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
 
-      display: inline-block;
+      background: rgba(255,255,255,0.04);
+      color: #c9c4ff;
 
-      color:
-        #a8a3ff;
-
-      font-size: 13px;
-
+      font-size: 12px;
       font-weight: 700;
-
-      margin-bottom: 30px;
-    }
-
-
-    .tag {
-
-      display: inline-block;
-
-      padding:
-        6px 11px;
-
-      border-radius: 7px;
-
-      background:
-        rgba(108,99,255,.18);
-
-      color:
-        #bbb7ff;
-
-      font-size: 10px;
-
-      font-weight: 800;
-
       text-transform: uppercase;
-
-      letter-spacing: .5px;
-
-      margin-bottom: 18px;
+      letter-spacing: 0.8px;
     }
 
-
-    .article-header h1 {
-
-      font-size:
-        clamp(42px, 6vw, 72px);
-
-      line-height:
-        1.02;
-
-      letter-spacing:
-        -3.5px;
-
-      max-width:
-        900px;
-
-      margin-bottom:
-        25px;
+    .category-label svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      stroke: currentColor;
     }
 
+    .article-title {
+      margin-top: 24px;
 
-    .subtitle {
-
-      color:
-        var(--muted);
-
-      font-size:
-        19px;
-
-      max-width:
-        760px;
-
-      line-height:
-        1.6;
-
-      margin-bottom:
-        25px;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      font-weight: 850;
     }
 
+    .article-subtitle {
+      max-width: 760px;
+      margin: 24px auto 0;
 
-    .meta {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .article-meta {
+      margin-top: 25px;
 
       display: flex;
-
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: 12px;
 
-      align-items: center;
-
-      color:
-        #747d8d;
-
-      font-size:
-        12px;
+      color: #858b9c;
+      font-size: 13px;
     }
 
+    .dot {
+      opacity: 0.5;
+    }
 
     /* =========================
-       HERO IMAGE
-       ========================= */
+       HERO IMAGE / VISUAL
+    ========================= */
 
-    .article-visual {
-
+    .article-hero {
       width: 100%;
+      min-height: 430px;
 
-      height: 400px;
+      margin: 50px 0 65px;
 
-      border-radius: 24px;
+      border-radius: 26px;
+      overflow: hidden;
 
-      display: grid;
-
-      place-items: center;
-
-      margin:
-        10px 0 55px;
+      position: relative;
 
       background:
-
         radial-gradient(
-          circle at 30% 20%,
-          rgba(108,99,255,.42),
-          transparent 32%
-        ),
-
-        radial-gradient(
-          circle at 80% 80%,
-          rgba(0,212,255,.15),
+          circle at 20% 20%,
+          rgba(124,92,255,0.28),
           transparent 35%
         ),
-
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(0,200,255,0.18),
+          transparent 35%
+        ),
         linear-gradient(
           135deg,
-          #181d2b,
-          #0d1118
+          #11131b,
+          #0c0e14
         );
 
-      border:
-        1px solid var(--border);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
 
-      box-shadow:
-        var(--shadow);
-
-      color:
-        white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
+    .article-hero img {
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      display: block;
 
-    .article-visual svg {
+      object-fit: cover;
+    }
 
+    .article-hero-placeholder {
+      width: 100%;
+      min-height: 430px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 50px;
+    }
+
+    .article-hero-placeholder svg {
       width: 130px;
       height: 130px;
 
-      fill:
-        currentColor;
+      fill: currentColor;
+      stroke: currentColor;
 
-      stroke:
-        currentColor;
+      opacity: 0.9;
     }
-
 
     /* =========================
        ARTICLE CONTENT
-       ========================= */
+    ========================= */
 
     .article-content {
+      max-width: 780px;
+      margin: auto;
 
-      font-size:
-        17px;
-
-      color:
-        #d5dae3;
-
-      padding-bottom:
-        100px;
+      font-size: 18px;
+      color: #d9dce5;
     }
-
 
     .article-content p {
-
-      margin-bottom:
-        25px;
+      margin-bottom: 25px;
     }
-
 
     .article-content h2 {
+      margin: 55px 0 20px;
 
-      font-size:
-        32px;
+      color: white;
 
-      line-height:
-        1.2;
-
-      letter-spacing:
-        -1px;
-
-      color:
-        white;
-
-      margin:
-        55px 0 20px;
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
     }
-
 
     .article-content h3 {
+      margin: 40px 0 15px;
 
-      font-size:
-        23px;
+      color: white;
 
-      color:
-        white;
-
-      margin:
-        40px 0 15px;
+      font-size: 23px;
+      line-height: 1.3;
     }
 
-
-    .article-content strong {
-
-      color:
-        white;
+    .article-content ul,
+    .article-content ol {
+      margin: 0 0 30px 25px;
     }
-
-
-    .article-content ul {
-
-      margin:
-        0 0 25px 25px;
-    }
-
 
     .article-content li {
-
-      margin-bottom:
-        10px;
+      margin-bottom: 10px;
     }
 
+    .article-content blockquote {
+      margin: 40px 0;
+      padding: 25px 30px;
 
-    .quote {
+      border-left: 3px solid var(--accent);
 
-      border-left:
-        3px solid var(--accent);
+      background: var(--surface);
 
-      padding:
-        15px 20px;
+      border-radius: 0 14px 14px 0;
 
-      margin:
-        35px 0;
-
-      background:
-        rgba(108,99,255,.07);
-
-      color:
-        #cdd2dc;
-
-      border-radius:
-        0 10px 10px 0;
+      color: #e8e9ef;
+      font-size: 20px;
+      font-style: italic;
     }
 
+    .article-content img {
+      width: 100%;
+      height: auto;
+
+      margin: 30px 0;
+
+      display: block;
+
+      border-radius: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .article-content a {
+      color: #a995ff;
+      text-decoration: underline;
+    }
 
     /* =========================
-       NOT FOUND
-       ========================= */
+       CONCLUSION
+    ========================= */
+
+    .article-conclusion {
+      max-width: 780px;
+      margin: 65px auto 0;
+      padding: 30px;
+
+      background: var(--surface);
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+    }
+
+    .article-conclusion h2 {
+      margin-bottom: 15px;
+
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .article-conclusion p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* =========================
+       BACK BUTTON
+    ========================= */
+
+    .article-navigation {
+      max-width: 780px;
+      margin: 60px auto 0;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 12px 17px;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      background: var(--surface);
+
+      color: #d9dce5;
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: 0.2s;
+    }
+
+    .back-button:hover {
+      background: var(--surface-2);
+      border-color: rgba(255,255,255,0.16);
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       404
+    ========================= */
 
     .not-found {
+      min-height: 65vh;
 
-      text-align:
-        center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      padding:
-        150px 0;
-
+      text-align: center;
     }
-
 
     .not-found h1 {
-
-      font-size:
-        60px;
-
-      margin-bottom:
-        15px;
+      font-size: 70px;
+      margin-bottom: 10px;
     }
-
 
     .not-found p {
-
-      color:
-        var(--muted);
-
-      margin-bottom:
-        30px;
+      color: var(--muted);
+      margin-bottom: 25px;
     }
-
-
-    .home-button {
-
-      display:
-        inline-block;
-
-      padding:
-        12px 20px;
-
-      border-radius:
-        10px;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--accent),
-          var(--accent-2)
-        );
-
-      color:
-        white;
-
-      font-weight:
-        700;
-
-      font-size:
-        13px;
-    }
-
 
     /* =========================
        FOOTER
-       ========================= */
+    ========================= */
 
     footer {
+      border-top: 1px solid var(--border);
 
-      border-top:
-        1px solid var(--border);
+      padding: 35px 24px;
 
-      padding:
-        45px 0 30px;
+      color: #777d8d;
+      text-align: center;
 
-      background:
-        #05070a;
+      font-size: 13px;
     }
-
-
-    .footer-inner {
-
-      display:
-        flex;
-
-      justify-content:
-        space-between;
-
-      align-items:
-        center;
-
-      gap:
-        20px;
-    }
-
-
-    .footer-inner p {
-
-      color:
-        #656d7b;
-
-      font-size:
-        12px;
-    }
-
-
-    .footer-links {
-
-      display:
-        flex;
-
-      gap:
-        20px;
-    }
-
-
-    .footer-links a {
-
-      color:
-        var(--muted);
-
-      font-size:
-        12px;
-    }
-
-
-    .footer-links a:hover {
-      color: white;
-    }
-
 
     /* =========================
        MOBILE
-       ========================= */
+    ========================= */
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
 
-      .navbar {
-        height: 68px;
+      .nav {
+        min-height: 65px;
+        padding: 0 17px;
       }
-
 
       .nav-links {
         display: none;
       }
 
-
-      main {
-        padding-top: 68px;
+      .article-page {
+        padding: 45px 17px 70px;
       }
 
-
-      .article-header {
-
-        padding:
-          75px 0 35px;
+      .article-title {
+        font-size: 40px;
+        letter-spacing: -1.8px;
       }
 
-
-      .article-header h1 {
-
-        font-size:
-          45px;
-
-        letter-spacing:
-          -2.5px;
+      .article-subtitle {
+        font-size: 16px;
       }
 
-
-      .subtitle {
-
-        font-size:
-          16px;
+      .article-hero,
+      .article-hero-placeholder {
+        min-height: 260px;
       }
 
-
-      .article-visual {
-
-        height:
-          280px;
-
-        border-radius:
-          18px;
-
-        margin-bottom:
-          40px;
+      .article-hero img {
+        min-height: 260px;
       }
-
-
-      .article-visual svg {
-
-        width:
-          95px;
-
-        height:
-          95px;
-      }
-
 
       .article-content {
-
-        font-size:
-          16px;
+        font-size: 17px;
       }
-
 
       .article-content h2 {
-
-        font-size:
-          27px;
+        font-size: 27px;
       }
 
-
-      .footer-inner {
-
-        flex-direction:
-          column;
-
-        align-items:
-          flex-start;
+      .article-content blockquote {
+        padding: 20px;
+        font-size: 18px;
       }
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
+<header>
+  <nav class="nav">
 
-  <!-- =========================
-       HEADER
-       ========================= -->
+    <a href="index.html" class="logo">
+      Tech<span>Tek</span>101
+    </a>
 
-  <header>
+    <div class="nav-links">
+      <a href="category.html?cat=ai">AI</a>
+      <a href="category.html?cat=apple">Apple</a>
+      <a href="category.html?cat=android">Android</a>
+      <a href="category.html?cat=pc">PC</a>
+      <a href="category.html?cat=audio">Audio</a>
+      <a href="category.html?cat=gadgets">Gadgets</a>
+    </div>
 
-    <div class="container navbar">
+  </nav>
+</header>
 
-      <a href="index.html" class="logo">
 
-        <div class="logo-mark">
-          T
+<main id="app"></main>
+
+
+<footer>
+  © 2026 TechTek101 — Technology, Explained.
+</footer>
+
+
+<script src="articles.js"></script>
+
+<script>
+
+  /* =========================
+     GET ARTICLE ID
+  ========================= */
+
+  const params = new URLSearchParams(window.location.search);
+
+  const articleId = params.get("id");
+
+  const article = articles[articleId];
+
+
+  /* =========================
+     ICON FALLBACK
+  ========================= */
+
+  const defaultIcon = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="8"></circle>
+      <path d="M8 12h8"></path>
+      <path d="M12 8v8"></path>
+    </svg>
+  `;
+
+
+  /* =========================
+     ARTICLE NOT FOUND
+  ========================= */
+
+  if (!article) {
+
+    document.title = "Article Not Found — TechTek101";
+
+    document.getElementById("app").innerHTML = `
+      <section class="not-found">
+
+        <div>
+
+          <h1>404</h1>
+
+          <p>
+            Sorry, this article could not be found.
+          </p>
+
+          <a href="index.html" class="back-button">
+            ← Back to Home
+          </a>
+
         </div>
 
-        <span>
-          Tech<em>Tek101</em>
-        </span>
+      </section>
+    `;
 
-      </a>
+  }
 
+  /* =========================
+     ARTICLE FOUND
+  ========================= */
 
-      <nav>
+  else {
 
-        <ul class="nav-links">
+    document.title = `${article.title} — TechTek101`;
 
-          <li>
-            <a href="index.html#latest">
-              Latest
-            </a>
-          </li>
 
-          <li>
-            <a href="index.html#categories">
-              Categories
-            </a>
-          </li>
+    const icon = article.icon || defaultIcon;
 
-          <li>
-            <a href="index.html#trending">
-              Trending
-            </a>
-          </li>
 
-          <li>
-            <a href="about.html">
-              About
-            </a>
-          </li>
+    /* HERO */
 
-        </ul>
+    let heroHTML = "";
 
-      </nav>
+    if (article.image) {
 
-    </div>
+      heroHTML = `
+        <img
+          src="${article.image}"
+          alt="${article.title}"
+        >
+      `;
 
-  </header>
+    } else {
 
-
-  <!-- =========================
-       MAIN
-       ========================= -->
-
-  <main id="main"></main>
-
-
-  <!-- =========================
-       FOOTER
-       ========================= -->
-
-  <footer>
-
-    <div class="container footer-inner">
-
-      <p>
-        © 2026 TechTek101. All rights reserved.
-      </p>
-
-
-      <div class="footer-links">
-
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="about.html">
-          About
-        </a>
-
-        <a href="index.html#categories">
-          Categories
-        </a>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =========================
-       JAVASCRIPT
-       ========================= -->
-
-  <script>
-
-
-    /* =========================
-       SVG ICONS
-       ========================= */
-
-    const icons = {
-
-      ai: `
-        <svg viewBox="0 0 24 24" aria-label="AI">
-          <path d="M12 2a3 3 0 0 0-3 3v1H7a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h2v2a1 1 0 0 0 2 0v-2h2v2a1 1 0 0 0 2 0v-2h2a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h-2V5a3 3 0 0 0-3-3Zm-1 4V5a1 1 0 0 1 2 0v1h-2Zm-4 3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V9Zm2 1v2h2v-2H9Zm4 0v2h2v-2h-2Z"/>
-        </svg>
-      `,
-
-
-      apple: `
-        <svg viewBox="0 0 24 24" aria-label="Apple">
-          <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.95-2.53 4.08zM12.03 7.25C11.88 5.02 13.69 3.18 15.84 3c.3 2.58-2.32 4.5-3.81 4.25z"/>
-        </svg>
-      `,
-
-
-      android: `
-        <svg viewBox="0 0 24 24" aria-label="Android">
-          <path d="M17.87 6.47l1.51-2.62a.32.32 0 0 0-.55-.32l-1.53 2.66A10.08 10.08 0 0 0 12 4.9c-1.9 0-3.76.45-5.3 1.29L5.16 3.53a.32.32 0 0 0-.55.32l1.52 2.62C3.59 8 1.86 10.78 1.86 14h20.28c0-3.22-1.73-6-4.27-7.53ZM7 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm12 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM4.5 15v5.27c0 .55.45 1 1 1h1.32v1.82a.91.91 0 1 0 1.82 0v-1.82h6.72v1.82a.91.91 0 1 0 1.82 0v-1.82h1.32c.55 0 1-.45 1-1V15h-15Z"/>
-        </svg>
-      `,
-
-
-      pc: `
-        <svg viewBox="0 0 24 24" aria-label="PC">
-          <path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6v2h2a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2h2v-2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v10h16V6H4Z"/>
-        </svg>
-      `,
-
-
-      audio: `
-        <svg viewBox="0 0 24 24" aria-label="Audio">
-          <path d="M12 3a7 7 0 0 0-7 7v5a2 2 0 0 0 2 2h2v-6H7v-1a5 5 0 0 1 10 0v1h-2v6h2a2 2 0 0 0 2-2v-5a7 7 0 0 0-7-7ZM8 12h1v4H8v-4Zm7 0h1v4h-1v-4Z"/>
-        </svg>
-      `,
-
-
-      gadgets: `
-        <svg viewBox="0 0 24 24" aria-label="Gadgets">
-          <path d="M13 2 4 13h6l-1 9 9-11h-6l1-9Zm-1.1 6.2-.35 2.8H14l-2.9 3.55.35-2.8H8.1l3.8-3.55Z"/>
-        </svg>
-      `
-
-    };
-
-
-    /* =========================
-       ARTICLE DATABASE
-       ========================= */
-
-    const articles = {
-
-
-      "apple-next": {
-
-        category: "Apple",
-
-        icon: icons.apple,
-
-        title:
-          "The next generation of Apple devices",
-
-        subtitle:
-          "A look at where Apple hardware and software could be heading next.",
-
-        read:
-          "5 min read",
-
-        date:
-          "Today",
-
-        content: `
-
-          <p>
-            Apple has spent years building an ecosystem where
-            hardware, software and services work closely together.
-            The next generation of devices could push that idea
-            even further.
-          </p>
-
-
-          <h2>
-            Hardware is only part of the story
-          </h2>
-
-
-          <p>
-            Modern Apple products are increasingly defined not
-            only by their physical design, but also by the chips,
-            operating systems and services running behind them.
-            This makes every new generation more than just a
-            specification upgrade.
-          </p>
-
-
-          <p>
-            Faster processors, improved displays, longer battery
-            life and smarter software can combine to create a
-            noticeably different experience even when the overall
-            product design remains familiar.
-          </p>
-
-
-          <div class="quote">
-            The most interesting Apple products are often the ones
-            where hardware and software disappear into the experience.
-          </div>
-
-
-          <h2>
-            The role of Apple silicon
-          </h2>
-
-
-          <p>
-            Apple's custom silicon strategy has transformed the
-            company's computers and mobile devices. Instead of
-            relying entirely on third-party processors, Apple can
-            design chips around the specific requirements of its
-            operating systems and applications.
-          </p>
-
-
-          <p>
-            That approach allows Apple to focus heavily on
-            efficiency, performance per watt and tightly integrated
-            features.
-          </p>
-
-
-          <h2>
-            What could come next?
-          </h2>
-
-
-          <p>
-            The future of Apple's product lineup will likely be
-            shaped by three major themes: efficiency, artificial
-            intelligence and deeper ecosystem integration.
-          </p>
-
-
-          <ul>
-            <li>More efficient and powerful processors</li>
-            <li>Smarter on-device features</li>
-            <li>Better integration between devices</li>
-            <li>Improved displays and battery technology</li>
-          </ul>
-
-
-          <p>
-            The result could be devices that feel less like
-            individual products and more like different parts
-            of one connected computing platform.
-          </p>
-
-        `
-      },
-
-
-      "ai-assistants": {
-
-        category: "Artificial Intelligence",
-
-        icon: icons.ai,
-
-        title:
-          "Why AI assistants are becoming part of everyday life",
-
-        subtitle:
-          "From work to entertainment, intelligent assistants are changing how we interact with technology.",
-
-        read:
-          "6 min read",
-
-        date:
-          "Today",
-
-        content: `
-
-          <p>
-            AI assistants are moving from experimental technology
-            into everyday tools. What once required a dedicated
-            application can increasingly be handled through natural
-            language.
-          </p>
-
-
-          <h2>
-            From commands to conversations
-          </h2>
-
-
-          <p>
-            Traditional software often requires users to learn
-            menus and interfaces. AI assistants introduce a
-            different approach: users can describe what they want
-            and let the system determine how to accomplish it.
-          </p>
-
-
-          <p>
-            This could change everything from searching for
-            information to writing documents, organizing tasks
-            and learning new skills.
-          </p>
-
-
-          <h2>
-            The next step
-          </h2>
-
-
-          <p>
-            As AI models become faster and more capable, assistants
-            are likely to become increasingly integrated into
-            computers, phones and other everyday devices.
-          </p>
-
-        `
-      },
-
-
-      "ai-work": {
-
-        category: "Artificial Intelligence",
-
-        icon: icons.ai,
-
-        title:
-          "AI is changing the way we work. Here's what comes next.",
-
-        subtitle:
-          "The workplace is entering a new era as AI tools become more capable and accessible.",
-
-        read:
-          "8 min read",
-
-        date:
-          "Today",
-
-        content: `
-
-          <p>
-            Artificial intelligence is quickly becoming another
-            tool in the modern workplace. Instead of replacing
-            every task, many AI systems are designed to help
-            people complete work faster.
-          </p>
-
-
-          <h2>
-            Automation and assistance
-          </h2>
-
-
-          <p>
-            Repetitive tasks such as summarizing information,
-            organizing data and drafting content can increasingly
-            be handled by AI.
-          </p>
-
-
-          <p>
-            This allows people to spend more time on decisions,
-            creativity and communication.
-          </p>
-
-
-          <h2>
-            A changing workplace
-          </h2>
-
-
-          <p>
-            The biggest change may not be a single AI application.
-            Instead, AI could become a standard layer inside the
-            software people already use every day.
-          </p>
-
-        `
-      },
-
-
-      "android-era": {
-
-        category: "Android",
-
-        icon: icons.android,
-
-        title:
-          "The smartphone market is entering a new era",
-
-        subtitle:
-          "Bigger isn't always better. Here's where mobile design could be heading next.",
-
-        read:
-          "5 min read",
-
-        date:
-          "Today",
-
-        content: `
-
-          <p>
-            Smartphone design has changed dramatically over the
-            last decade. Screens became larger, cameras became
-            more capable and processors became increasingly powerful.
-          </p>
-
-
-          <h2>
-            Efficiency matters more
-          </h2>
-
-
-          <p>
-            Today's mobile processors can deliver impressive
-            performance without consuming as much power as older
-            generations.
-          </p>
-
-
-          <p>
-            That efficiency gives manufacturers more freedom to
-            focus on battery life, thin designs and advanced
-            features.
-          </p>
-
-
-          <h2>
-            What's next?
-          </h2>
-
-
-          <p>
-            Foldable displays, artificial intelligence and
-            increasingly sophisticated cameras could define the
-            next stage of smartphone development.
-          </p>
-
-        `
-      },
-
-
-      "laptop-performance": {
-
-        category: "PC & Laptop",
-
-        icon: icons.pc,
-
-        title:
-          "Do you really need a powerful laptop anymore?",
-
-        subtitle:
-          "Modern chips are becoming incredibly efficient. But where does raw performance still matter?",
-
-        read:
-          "7 min read",
-
-        date:
-          "Yesterday",
-
-        content: `
-
-          <p>
-            Laptop processors have become dramatically more
-            efficient. For many everyday users, even relatively
-            affordable computers can now handle browsing,
-            documents and productivity without difficulty.
-          </p>
-
-
-          <h2>
-            When performance matters
-          </h2>
-
-
-          <p>
-            Heavy workloads are different. Video editing,
-            software development, large spreadsheets and
-            professional applications can still benefit from
-            additional CPU and GPU performance.
-          </p>
-
-
-          <h2>
-            The efficiency revolution
-          </h2>
-
-
-          <p>
-            The interesting part is that modern processors are
-            delivering more performance while using less power.
-            This has changed what people should expect from a
-            laptop.
-          </p>
-
-        `
-      },
-
-
-      "oled-miniled": {
-
-        category: "PC & Laptop",
-
-        icon: icons.pc,
-
-        title:
-          "OLED vs Mini-LED: which display technology wins?",
-
-        subtitle:
-          "We break down contrast, brightness, motion and everyday usability.",
-
-        read:
-          "9 min read",
-
-        date:
-          "2 days ago",
-
-        content: `
-
-          <p>
-            OLED and Mini-LED are two of the most interesting
-            display technologies available today.
-          </p>
-
-
-          <h2>
-            OLED
-          </h2>
-
-
-          <p>
-            OLED displays can control individual pixels, allowing
-            them to produce extremely deep blacks and excellent
-            contrast.
-          </p>
-
-
-          <h2>
-            Mini-LED
-          </h2>
-
-
-          <p>
-            Mini-LED uses many small backlight zones to provide
-            high brightness while maintaining strong contrast.
-            This can make it particularly attractive for HDR
-            content.
-          </p>
-
-
-          <h2>
-            Which one is better?
-          </h2>
-
-
-          <p>
-            Neither technology wins in every situation. OLED is
-            particularly impressive for contrast and motion,
-            while Mini-LED can have advantages in brightness and
-            certain productivity environments.
-          </p>
-
-        `
-      },
-
-
-      "premium-headphones": {
-
-        category: "Audio",
-
-        icon: icons.audio,
-
-        title:
-          "Why premium headphones sound so different",
-
-        subtitle:
-          "A look at drivers, tuning, codecs and the technology behind modern wireless audio.",
-
-        read:
-          "8 min read",
-
-        date:
-          "Yesterday",
-
-        content: `
-
-          <p>
-            Expensive headphones are not simply about having
-            bigger speakers. Sound quality depends on a combination
-            of driver design, tuning, amplification, software and
-            the physical design of the headphones.
-          </p>
-
-
-          <h2>
-            Driver technology
-          </h2>
-
-
-          <p>
-            The driver is one of the most important components in
-            any headphone. Different driver designs can produce
-            different levels of detail, dynamics and tonal character.
-          </p>
-
-
-          <h2>
-            Tuning matters
-          </h2>
-
-
-          <p>
-            Two headphones using similar hardware can sound
-            completely different because their tuning is different.
-            Manufacturers can emphasize bass, vocals or treble
-            depending on the intended experience.
-          </p>
-
-
-          <h2>
-            Wireless technology
-          </h2>
-
-
-          <p>
-            Modern wireless headphones also depend heavily on
-            Bluetooth codecs, digital signal processing and
-            noise-cancellation algorithms.
-          </p>
-
-        `
-      },
-
-
-      "great-gadget": {
-
-        category: "Gadgets",
-
-        icon: icons.gadgets,
-
-        title:
-          "What makes a great everyday gadget?",
-
-        subtitle:
-          "The best gadgets don't just add features. They make everyday life genuinely easier.",
-
-        read:
-          "4 min read",
-
-        date:
-          "Yesterday",
-
-        content: `
-
-          <p>
-            The best gadgets are often not the most complicated
-            products. Instead, they solve a problem so naturally
-            that using them becomes part of everyday life.
-          </p>
-
-
-          <h2>
-            Simplicity matters
-          </h2>
-
-
-          <p>
-            A good gadget should be easy to understand and easy
-            to use. Too many unnecessary features can make a
-            product frustrating rather than useful.
-          </p>
-
-
-          <h2>
-            Good technology disappears
-          </h2>
-
-
-          <p>
-            When a product works exactly as expected, users stop
-            thinking about the technology behind it.
-          </p>
-
-
-          <p>
-            That is often the sign of a genuinely great gadget.
-          </p>
-
-        `
-      }
-
-    };
-
-
-    /* =========================
-       GET ARTICLE ID
-       ========================= */
-
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
-
-
-    const articleId =
-      params.get("id");
-
-
-    const article =
-      articles[articleId];
-
-
-    const main =
-      document.getElementById("main");
-
-
-    /* =========================
-       ARTICLE NOT FOUND
-       ========================= */
-
-    if (!article) {
-
-      document.title =
-        "Article Not Found — TechTek101";
-
-
-      main.innerHTML = `
-
-        <section class="not-found">
-
-          <div class="container">
-
-            <h1>
-              404
-            </h1>
-
-            <p>
-              Sorry, this article doesn't exist.
-            </p>
-
-            <a
-              href="index.html"
-              class="home-button"
-            >
-              Back to TechTek101
-            </a>
-
-          </div>
-
-        </section>
-
+      heroHTML = `
+        <div class="article-hero-placeholder">
+          ${icon}
+        </div>
       `;
 
     }
 
 
-    /* =========================
-       RENDER ARTICLE
-       ========================= */
+    /* CONTENT */
 
-    else {
+    document.getElementById("app").innerHTML = `
 
-      document.title =
-        article.title +
-        " — TechTek101";
+      <article class="article-page">
 
 
-      main.innerHTML = `
+        <!-- ARTICLE HEADER -->
 
-        <article>
+        <header class="article-header">
 
-          <header class="article-header">
-
-            <div class="container">
-
-              <a
-                href="javascript:history.back()"
-                class="back"
-              >
-                ← Back
-              </a>
+          <div class="category-label">
+            ${icon}
+            ${article.category}
+          </div>
 
 
-              <div>
+          <h1 class="article-title">
+            ${article.title}
+          </h1>
 
-                <span class="tag">
-                  ${article.category}
+
+          ${
+            article.subtitle
+            ?
+            `<p class="article-subtitle">
+              ${article.subtitle}
+            </p>`
+            :
+            ""
+          }
+
+
+          <div class="article-meta">
+
+            <span>
+              ${article.date || ""}
+            </span>
+
+            ${
+              article.read
+              ?
+              `
+                <span class="dot">•</span>
+
+                <span>
+                  ${article.read}
                 </span>
-
-
-                <h1>
-                  ${article.title}
-                </h1>
-
-
-                <p class="subtitle">
-                  ${article.subtitle}
-                </p>
-
-
-                <div class="meta">
-
-                  <span>
-                    ${article.read}
-                  </span>
-
-                  <span>
-                    •
-                  </span>
-
-                  <span>
-                    ${article.date}
-                  </span>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </header>
-
-
-          <div class="container">
-
-            <div class="article-visual">
-
-              ${article.icon}
-
-            </div>
-
-
-            <div class="article-content">
-
-              ${article.content}
-
-            </div>
+              `
+              :
+              ""
+            }
 
           </div>
 
-        </article>
+        </header>
 
-      `;
 
-    }
+        <!-- HERO -->
 
-  </script>
+        <div class="article-hero">
+          ${heroHTML}
+        </div>
+
+
+        <!-- ARTICLE BODY -->
+
+        <div class="article-content">
+
+          ${article.content || ""}
+
+        </div>
+
+
+        <!-- CONCLUSION -->
+
+        ${
+          article.conclusion
+          ?
+          `
+            <section class="article-conclusion">
+
+              <h2>
+                Conclusion
+              </h2>
+
+              <p>
+                ${article.conclusion}
+              </p>
+
+            </section>
+          `
+          :
+          ""
+        }
+
+
+        <!-- NAVIGATION -->
+
+        <div class="article-navigation">
+
+          <a
+            href="category.html?cat=${article.categoryKey}"
+            class="back-button"
+          >
+            ← Back to ${article.category}
+          </a>
+
+
+          <a
+            href="index.html"
+            class="back-button"
+          >
+            Home →
+          </a>
+
+        </div>
+
+
+      </article>
+
+    `;
+
+  }
+
+</script>
 
 </body>
 </html>
-```
