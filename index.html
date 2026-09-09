@@ -2,2626 +2,1771 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>TechTek101 — Technology, Explained.</title>
-
-  <meta
-    name="description"
-    content="TechTek101 brings you the latest technology, AI, gadgets, Apple, Android, PC and more."
-  >
-
-  <style>
-    /* =========================================================
-       TECHTEK101
-       Modern Technology Media Website
-       Single-file GitHub Pages version
-       ========================================================= */
-
-    :root {
-      --bg: #07090d;
-      --bg-soft: #0d1016;
-      --card: #11151d;
-      --card-hover: #161b25;
-
-      --text: #f5f7fb;
-      --muted: #8e97a8;
-
-      --border: rgba(255,255,255,.08);
-
-      --accent: #6c63ff;
-      --accent-2: #00d4ff;
-
-      --success: #43e97b;
-
-      --max-width: 1240px;
-      --radius: 20px;
-
-      --shadow:
-        0 20px 60px rgba(0,0,0,.35);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at 80% 0%,
-          rgba(108,99,255,.13),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(0,212,255,.06),
-          transparent 25%
-        ),
-        var(--bg);
-
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    .container {
-      width: min(92%, var(--max-width));
-      margin: auto;
-    }
-
-
-    /* =========================================================
-       NAVBAR
-       ========================================================= */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-
-      z-index: 1000;
-
-      backdrop-filter: blur(18px);
-
-      background:
-        rgba(7,9,13,.72);
-
-      border-bottom:
-        1px solid rgba(255,255,255,.05);
-
-      transition: .25s;
-    }
-
-    .navbar {
-      height: 76px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      font-size: 23px;
-      font-weight: 800;
-
-      letter-spacing: -.8px;
-    }
-
-    .logo-mark {
-      width: 35px;
-      height: 35px;
-
-      border-radius: 10px;
-
-      display: grid;
-      place-items: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--accent),
-          var(--accent-2)
-        );
-
-      color: white;
-
-      font-size: 16px;
-      font-weight: 900;
-
-      box-shadow:
-        0 0 25px rgba(108,99,255,.35);
-    }
-
-    .logo span {
-      color: white;
-    }
-
-    .logo em {
-      color: var(--accent-2);
-      font-style: normal;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-
-      list-style: none;
-
-      color: #aeb6c5;
-
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a {
-      transition: .25s;
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .search-btn,
-    .menu-btn {
-      width: 40px;
-      height: 40px;
-
-      border-radius: 12px;
-
-      border:
-        1px solid var(--border);
-
-      background:
-        rgba(255,255,255,.04);
-
-      color: white;
-
-      cursor: pointer;
-
-      transition: .25s;
-    }
-
-    .search-btn:hover,
-    .menu-btn:hover {
-      background:
-        rgba(255,255,255,.1);
-    }
-
-    .menu-btn {
-      display: none;
-    }
-
-
-    /* =========================================================
-       HERO
-       ========================================================= */
-
-    .hero {
-      min-height: 700px;
-
-      padding-top: 76px;
-
-      display: flex;
-      align-items: center;
-
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-
-      position: absolute;
-
-      width: 500px;
-      height: 500px;
-
-      background:
-        rgba(108,99,255,.12);
-
-      filter: blur(120px);
-
-      border-radius: 50%;
-
-      right: -150px;
-      top: 80px;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-
-      max-width: 850px;
-
-      padding: 100px 0;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-
-      padding: 7px 13px;
-
-      border:
-        1px solid rgba(108,99,255,.25);
-
-      background:
-        rgba(108,99,255,.08);
-
-      border-radius: 999px;
-
-      color: #b9b4ff;
-
-      font-size: 12px;
-      font-weight: 700;
-
-      letter-spacing: .7px;
-      text-transform: uppercase;
-
-      margin-bottom: 25px;
-    }
-
-    .live-dot {
-      width: 7px;
-      height: 7px;
-
-      background: #54e58c;
-
-      border-radius: 50%;
-
-      box-shadow:
-        0 0 12px #54e58c;
-    }
-
-    .hero h1 {
-      font-size:
-        clamp(50px, 8vw, 94px);
-
-      line-height: .95;
-
-      letter-spacing: -5px;
-
-      max-width: 900px;
-
-      margin-bottom: 28px;
-    }
-
-    .gradient-text {
-      background:
-        linear-gradient(
-          100deg,
-          #fff 20%,
-          #a8a3ff 55%,
-          #56dfff
-        );
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 650px;
-
-      font-size: 19px;
-
-      color: var(--muted);
-
-      margin-bottom: 35px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 13px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-
-      padding: 13px 20px;
-
-      border-radius: 13px;
-
-      font-size: 14px;
-      font-weight: 700;
-
-      transition: .25s;
-
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--accent),
-          #857eff
-        );
-
-      box-shadow:
-        0 10px 30px rgba(108,99,255,.25);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-
-      box-shadow:
-        0 15px 35px rgba(108,99,255,.35);
-    }
-
-    .btn-secondary {
-      background:
-        rgba(255,255,255,.05);
-
-      border:
-        1px solid var(--border);
-
-      color: white;
-    }
-
-    .btn-secondary:hover {
-      background:
-        rgba(255,255,255,.1);
-    }
-
-
-    /* =========================================================
-       GENERAL SECTIONS
-       ========================================================= */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-
-      margin-bottom: 30px;
-
-      gap: 20px;
-    }
-
-    .section-heading h2 {
-      font-size: 32px;
-      letter-spacing: -1.5px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-
-      font-size: 14px;
-
-      margin-top: 4px;
-    }
-
-    .view-all {
-      color: #a8a3ff;
-
-      font-size: 13px;
-      font-weight: 700;
-
-      white-space: nowrap;
-    }
-
-
-    /* =========================================================
-       FEATURED STORIES
-       ========================================================= */
-
-    .featured-grid {
-      display: grid;
-
-      grid-template-columns:
-        1.65fr 1fr;
-
-      gap: 20px;
-    }
-
-    .featured-card {
-      min-height: 470px;
-
-      border-radius: var(--radius);
-
-      border:
-        1px solid var(--border);
-
-      overflow: hidden;
-
-      position: relative;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(0,0,0,.92),
-          rgba(0,0,0,.05) 65%
-        ),
-        linear-gradient(
-          135deg,
-          #191c35,
-          #10131b
-        );
-
-      cursor: pointer;
-
-      transition: .35s;
-    }
-
-    .featured-card:hover {
-      transform: translateY(-5px);
-
-      border-color:
-        rgba(108,99,255,.35);
-
-      box-shadow: var(--shadow);
-    }
-
-    .featured-card.small {
-      min-height: 225px;
-    }
-
-    .featured-stack {
-      display: grid;
-      gap: 20px;
-    }
-
-    .fake-image {
-      position: absolute;
-      inset: 0;
-
-      display: grid;
-      place-items: center;
-
-      font-size: 100px;
-
-      opacity: .12;
-
-      user-select: none;
-    }
-
-    .featured-info {
-      position: absolute;
-
-      left: 28px;
-      right: 28px;
-      bottom: 27px;
-
-      z-index: 2;
-    }
-
-    .tag {
-      display: inline-block;
-
-      padding: 5px 10px;
-
-      border-radius: 7px;
-
-      background:
-        rgba(108,99,255,.18);
-
-      color: #bbb7ff;
-
-      font-size: 11px;
-      font-weight: 800;
-
-      text-transform: uppercase;
-      letter-spacing: .5px;
-
-      margin-bottom: 11px;
-    }
-
-    .featured-info h3 {
-      font-size: 30px;
-
-      line-height: 1.15;
-
-      letter-spacing: -1px;
-
-      max-width: 700px;
-    }
-
-    .small .featured-info h3 {
-      font-size: 21px;
-    }
-
-    .meta {
-      display: flex;
-      gap: 13px;
-
-      margin-top: 13px;
-
-      color: #8e96a5;
-
-      font-size: 12px;
-    }
-
-
-    /* =========================================================
-       LATEST ARTICLES
-       ========================================================= */
-
-    .articles-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 20px;
-    }
-
-    .article-card {
-      background:
-        var(--card);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 17px;
-
-      overflow: hidden;
-
-      transition: .3s;
-    }
-
-    .article-card:hover {
-      transform: translateY(-5px);
-
-      background:
-        var(--card-hover);
-
-      border-color:
-        rgba(255,255,255,.13);
-    }
-
-    .article-image {
-      height: 190px;
-
-      background:
-        radial-gradient(
-          circle at 30% 20%,
-          rgba(108,99,255,.4),
-          transparent 30%
-        ),
-        linear-gradient(
-          135deg,
-          #181d2b,
-          #0d1118
-        );
-
-      display: grid;
-      place-items: center;
-
-      font-size: 55px;
-
-      position: relative;
-    }
-
-    .article-body {
-      padding: 21px;
-    }
-
-    .article-body h3 {
-      font-size: 19px;
-
-      line-height: 1.3;
-
-      margin-bottom: 10px;
-
-      letter-spacing: -.4px;
-    }
-
-    .article-body p {
-      color: var(--muted);
-
-      font-size: 13px;
-
-      line-height: 1.6;
-
-      margin-bottom: 17px;
-    }
-
-
-    /* =========================================================
-       CATEGORIES
-       ========================================================= */
-
-    .categories {
-      display: grid;
-
-      grid-template-columns:
-        repeat(6, 1fr);
-
-      gap: 13px;
-    }
-
-    .category {
-      padding: 23px 15px;
-
-      text-align: center;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 16px;
-
-      background:
-        rgba(255,255,255,.025);
-
-      transition: .3s;
-    }
-
-    .category:hover {
-      transform: translateY(-4px);
-
-      background:
-        rgba(255,255,255,.06);
-
-      border-color:
-        rgba(108,99,255,.3);
-    }
-
-    .category-icon {
-      font-size: 28px;
-
-      margin-bottom: 10px;
-    }
-
-    .category span {
-      display: block;
-
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-
-    /* =========================================================
-       TRENDING
-       ========================================================= */
-
-    .trending-layout {
-      display: grid;
-
-      grid-template-columns:
-        1fr 1.5fr;
-
-      gap: 60px;
-
-      align-items: center;
-    }
-
-    .trending-title {
-      font-size: 44px;
-
-      line-height: 1.05;
-
-      letter-spacing: -2px;
-
-      margin-bottom: 18px;
-    }
-
-    .trending-description {
-      color: var(--muted);
-
-      font-size: 15px;
-    }
-
-    .ranking {
-      display: grid;
-
-      gap: 13px;
-    }
-
-    .rank-item {
-      display: flex;
-      align-items: center;
-
-      gap: 17px;
-
-      padding: 17px;
-
-      border-radius: 15px;
-
-      border:
-        1px solid var(--border);
-
-      background:
-        rgba(255,255,255,.025);
-
-      transition: .25s;
-    }
-
-    .rank-item:hover {
-      background:
-        rgba(255,255,255,.06);
-    }
-
-    .rank-number {
-      width: 35px;
-
-      font-size: 20px;
-      font-weight: 800;
-
-      color: #666d7b;
-
-      text-align: center;
-    }
-
-    .rank-content {
-      flex: 1;
-    }
-
-    .rank-content h4 {
-      font-size: 14px;
-
-      line-height: 1.35;
-    }
-
-    .rank-content span {
-      font-size: 11px;
-
-      color: var(--muted);
-    }
-
-    .rank-arrow {
-      color: #626a79;
-    }
-
-
-    /* =========================================================
-       ABOUT TECHTEK101
-       ========================================================= */
-
-    .about {
-      border:
-        1px solid var(--border);
-
-      border-radius: 25px;
-
-      padding: 55px;
-
-      background:
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(108,99,255,.16),
-          transparent 35%
-        ),
-        rgba(255,255,255,.025);
-
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap: 70px;
-
-      align-items: center;
-    }
-
-    .about h2 {
-      font-size: 42px;
-
-      line-height: 1.05;
-
-      letter-spacing: -2px;
-
-      margin-bottom: 20px;
-    }
-
-    .about p {
-      color: var(--muted);
-
-      font-size: 15px;
-    }
-
-    .stats {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 13px;
-    }
-
-    .stat {
-      padding: 25px;
-
-      border-radius: 15px;
-
-      background:
-        rgba(255,255,255,.04);
-
-      border:
-        1px solid var(--border);
-    }
-
-    .stat strong {
-      display: block;
-
-      font-size: 30px;
-
-      letter-spacing: -1px;
-    }
-
-    .stat span {
-      font-size: 12px;
-
-      color: var(--muted);
-    }
-
-
-    /* =========================================================
-       NEWSLETTER
-       ========================================================= */
-
-    .newsletter {
-      text-align: center;
-
-      padding: 80px 20px;
-    }
-
-    .newsletter-box {
-      max-width: 780px;
-
-      margin: auto;
-    }
-
-    .newsletter h2 {
-      font-size: 44px;
-
-      letter-spacing: -2px;
-
-      line-height: 1.05;
-
-      margin-bottom: 15px;
-    }
-
-    .newsletter p {
-      color: var(--muted);
-
-      margin-bottom: 28px;
-    }
-
-    .newsletter-form {
-      max-width: 500px;
-
-      margin: auto;
-
-      display: flex;
-
-      gap: 8px;
-
-      padding: 6px;
-
-      background:
-        rgba(255,255,255,.05);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 15px;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-
-      min-width: 0;
-
-      border: none;
-
-      outline: none;
-
-      background: transparent;
-
-      color: white;
-
-      padding: 11px 13px;
-    }
-
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-
-    footer {
-      border-top:
-        1px solid var(--border);
-
-      padding:
-        50px 0 30px;
-
-      background:
-        #05070a;
-    }
-
-    .footer-grid {
-      display: grid;
-
-      grid-template-columns:
-        2fr 1fr 1fr 1fr;
-
-      gap: 50px;
-
-      padding-bottom: 45px;
-    }
-
-    .footer-brand p {
-      color: var(--muted);
-
-      max-width: 330px;
-
-      font-size: 13px;
-
-      margin-top: 15px;
-    }
-
-    .footer-column h4 {
-      font-size: 13px;
-
-      margin-bottom: 16px;
-    }
-
-    .footer-column a {
-      display: block;
-
-      color: var(--muted);
-
-      font-size: 13px;
-
-      margin: 9px 0;
-
-      transition: .2s;
-    }
-
-    .footer-column a:hover {
-      color: white;
-    }
-
-    .copyright {
-      padding-top: 25px;
-
-      border-top:
-        1px solid var(--border);
-
-      color: #656d7b;
-
-      font-size: 12px;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      gap: 20px;
-    }
-
-
-    /* =========================================================
-       SEARCH OVERLAY
-       ========================================================= */
-
-    .search-overlay {
-      position: fixed;
-
-      inset: 0;
-
-      background:
-        rgba(4,6,10,.9);
-
-      backdrop-filter: blur(15px);
-
-      z-index: 2000;
-
-      display: none;
-
-      align-items: flex-start;
-
-      justify-content: center;
-
-      padding-top: 150px;
-    }
-
-    .search-overlay.active {
-      display: flex;
-    }
-
-    .search-box {
-      width: min(700px, 90%);
-    }
-
-    .search-box input {
-      width: 100%;
-
-      padding: 20px;
-
-      border-radius: 15px;
-
-      border:
-        1px solid rgba(255,255,255,.15);
-
-      background:
-        #11151d;
-
-      color: white;
-
-      outline: none;
-
-      font-size: 18px;
-    }
-
-    .close-search {
-      margin-top: 12px;
-
-      color: var(--muted);
-
-      font-size: 12px;
-
-      text-align: center;
-    }
-
-
-    /* =========================================================
-       SCROLL REVEAL
-       ========================================================= */
-
-    .reveal {
-      opacity: 0;
-
-      transform:
-        translateY(25px);
-
-      transition:
-        opacity .7s ease,
-        transform .7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-
-      transform:
-        translateY(0);
-    }
-
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
-
-    @media (max-width: 900px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .featured-grid,
-      .trending-layout,
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .articles-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-      .categories {
-        grid-template-columns:
-          repeat(3, 1fr);
-      }
-
-      .footer-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-      .hero {
-        min-height: 620px;
-      }
-
-      .hero h1 {
-        letter-spacing: -3px;
-      }
-    }
-
-
-    @media (max-width: 600px) {
-
-      .navbar {
-        height: 68px;
-      }
-
-      .logo {
-        font-size: 20px;
-      }
-
-      .logo-mark {
-        width: 31px;
-        height: 31px;
-      }
-
-      .hero {
-        padding-top: 68px;
-      }
-
-      .hero-content {
-        padding: 80px 0;
-      }
-
-      .hero h1 {
-        font-size: 52px;
-
-        letter-spacing: -3px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-      }
-
-      .section-heading h2 {
-        font-size: 27px;
-      }
-
-      .featured-card {
-        min-height: 390px;
-      }
-
-      .featured-card.small {
-        min-height: 210px;
-      }
-
-      .featured-info h3 {
-        font-size: 24px;
-      }
-
-      .articles-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .categories {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-      .trending-title {
-        font-size: 36px;
-      }
-
-      .about {
-        padding: 30px;
-
-        gap: 35px;
-      }
-
-      .about h2 {
-        font-size: 34px;
-      }
-
-      .newsletter h2 {
-        font-size: 35px;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-
-        background: transparent;
-
-        border: none;
-      }
-
-      .newsletter-form input {
-        background:
-          rgba(255,255,255,.05);
-
-        border:
-          1px solid var(--border);
-
-        border-radius: 12px;
-
-        padding: 14px;
-      }
-
-      .newsletter-form .btn {
-        width: 100%;
-      }
-
-      .footer-grid {
-        grid-template-columns:
-          1fr 1fr;
-
-        gap: 35px 20px;
-      }
-
-      .copyright {
-        flex-direction: column;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TechTek101 — Technology, Explained.</title>
+
+<meta name="description" content="TechTek101 brings you the latest technology, AI, gadgets, Apple, Android, PC and more.">
+
+<style>
+:root{
+  --bg:#07090d;
+  --bg-soft:#0d1016;
+  --card:#11151d;
+  --card-hover:#161b25;
+  --text:#f5f7fb;
+  --muted:#8e97a8;
+  --border:rgba(255,255,255,.08);
+  --accent:#6c63ff;
+  --accent-2:#00d4ff;
+  --success:#43e97b;
+  --max-width:1240px;
+  --radius:20px;
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 80% 0%,rgba(108,99,255,.13),transparent 30%),
+    radial-gradient(circle at 10% 20%,rgba(0,212,255,.06),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input{font:inherit;}
+
+.container{
+  width:min(92%,var(--max-width));
+  margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  backdrop-filter:blur(18px);
+  background:rgba(7,9,13,.72);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:.25s;
+}
+
+.navbar{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-.8px;
+}
+
+.logo-mark{
+  width:35px;
+  height:35px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:white;
+  font-size:16px;
+  font-weight:900;
+  box-shadow:0 0 25px rgba(108,99,255,.35);
+}
+
+.logo span{color:white;}
+.logo em{
+  color:var(--accent-2);
+  font-style:normal;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+  list-style:none;
+  color:#aeb6c5;
+  font-size:14px;
+  font-weight:600;
+}
+
+.nav-links a{transition:.25s;}
+.nav-links a:hover{color:white;}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.search-btn,.menu-btn{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:white;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.search-btn:hover,.menu-btn:hover{
+  background:rgba(255,255,255,.1);
+}
+
+.menu-btn{display:none;}
+
+/* HERO */
+
+.hero{
+  min-height:700px;
+  padding-top:76px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:rgba(108,99,255,.12);
+  filter:blur(120px);
+  border-radius:50%;
+  right:-150px;
+  top:80px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:850px;
+  padding:100px 0;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 13px;
+  border:1px solid rgba(108,99,255,.25);
+  background:rgba(108,99,255,.08);
+  border-radius:999px;
+  color:#b9b4ff;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+
+.live-dot{
+  width:7px;
+  height:7px;
+  background:#54e58c;
+  border-radius:50%;
+  box-shadow:0 0 12px #54e58c;
+}
+
+.hero h1{
+  font-size:clamp(50px,8vw,94px);
+  line-height:.95;
+  letter-spacing:-5px;
+  max-width:900px;
+  margin-bottom:28px;
+}
+
+.gradient-text{
+  background:linear-gradient(100deg,#fff 20%,#a8a3ff 55%,#56dfff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:650px;
+  font-size:19px;
+  color:var(--muted);
+  margin-bottom:35px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:13px 20px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:700;
+  transition:.25s;
+  cursor:pointer;
+  border:none;
+}
+
+.btn-primary{
+  color:white;
+  background:linear-gradient(135deg,var(--accent),#857eff);
+  box-shadow:0 10px 30px rgba(108,99,255,.25);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 15px 35px rgba(108,99,255,.35);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--border);
+  color:white;
+}
+
+.btn-secondary:hover{
+  background:rgba(255,255,255,.1);
+}
+
+/* GENERAL */
+
+section{padding:85px 0;}
+
+.section-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:30px;
+  gap:20px;
+}
+
+.section-heading h2{
+  font-size:32px;
+  letter-spacing:-1.5px;
+}
+
+.section-heading p{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:4px;
+}
+
+.view-all{
+  color:#a8a3ff;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* FEATURED */
+
+.featured-grid{
+  display:grid;
+  grid-template-columns:1.65fr 1fr;
+  gap:20px;
+}
+
+.featured-card{
+  min-height:470px;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.05) 65%),
+    linear-gradient(135deg,#191c35,#10131b);
+  cursor:pointer;
+  transition:.35s;
+}
+
+.featured-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(108,99,255,.35);
+  box-shadow:var(--shadow);
+}
+
+.featured-card.small{min-height:225px;}
+
+.featured-stack{
+  display:grid;
+  gap:20px;
+}
+
+.fake-image{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-size:100px;
+  opacity:.12;
+  user-select:none;
+}
+
+.fake-image svg{
+  width:100px;
+  height:100px;
+  fill:currentColor;
+}
+
+.featured-info{
+  position:absolute;
+  left:28px;
+  right:28px;
+  bottom:27px;
+  z-index:2;
+}
+
+.tag{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:7px;
+  background:rgba(108,99,255,.18);
+  color:#bbb7ff;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  margin-bottom:11px;
+}
+
+.featured-info h3{
+  font-size:30px;
+  line-height:1.15;
+  letter-spacing:-1px;
+  max-width:700px;
+}
+
+.small .featured-info h3{font-size:21px;}
+
+.meta{
+  display:flex;
+  gap:13px;
+  margin-top:13px;
+  color:#8e96a5;
+  font-size:12px;
+}
+
+/* ARTICLES */
+
+.articles-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.article-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:17px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.article-card:hover{
+  transform:translateY(-5px);
+  background:var(--card-hover);
+  border-color:rgba(255,255,255,.13);
+}
+
+.article-image{
+  height:190px;
+  background:
+    radial-gradient(circle at 30% 20%,rgba(108,99,255,.4),transparent 30%),
+    linear-gradient(135deg,#181d2b,#0d1118);
+  display:grid;
+  place-items:center;
+  font-size:55px;
+  position:relative;
+}
+
+.article-image svg{
+  width:58px;
+  height:58px;
+  fill:currentColor;
+}
+
+.article-body{padding:21px;}
+
+.article-body h3{
+  font-size:19px;
+  line-height:1.3;
+  margin-bottom:10px;
+  letter-spacing:-.4px;
+}
+
+.article-body p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin-bottom:17px;
+}
+
+/* CATEGORIES */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:13px;
+}
+
+.category{
+  padding:23px 15px;
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:rgba(255,255,255,.025);
+  transition:.3s;
+}
+
+.category:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,.06);
+  border-color:rgba(108,99,255,.3);
+}
+
+.category-icon{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 10px;
+}
+
+.category-icon svg{
+  width:34px;
+  height:34px;
+  fill:currentColor;
+}
+
+.category span{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* TRENDING */
+
+.trending-layout{
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:60px;
+  align-items:center;
+}
+
+.trending-title{
+  font-size:44px;
+  line-height:1.05;
+  letter-spacing:-2px;
+  margin-bottom:18px;
+}
+
+.trending-description{
+  color:var(--muted);
+  font-size:15px;
+}
+
+.ranking{
+  display:grid;
+  gap:13px;
+}
+
+.rank-item{
+  display:flex;
+  align-items:center;
+  gap:17px;
+  padding:17px;
+  border-radius:15px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.025);
+  transition:.25s;
+}
+
+.rank-item:hover{background:rgba(255,255,255,.06);}
+
+.rank-number{
+  width:35px;
+  font-size:20px;
+  font-weight:800;
+  color:#666d7b;
+  text-align:center;
+}
+
+.rank-content{flex:1;}
+
+.rank-content h4{
+  font-size:14px;
+  line-height:1.35;
+}
+
+.rank-content span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.rank-arrow{color:#626a79;}
+
+/* ABOUT */
+
+.about{
+  border:1px solid var(--border);
+  border-radius:25px;
+  padding:55px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(108,99,255,.16),transparent 35%),
+    rgba(255,255,255,.025);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.about h2{
+  font-size:42px;
+  line-height:1.05;
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.about p{
+  color:var(--muted);
+  font-size:15px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+}
+
+.stat{
+  padding:25px;
+  border-radius:15px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+}
+
+.stat strong{
+  display:block;
+  font-size:30px;
+  letter-spacing:-1px;
+}
+
+.stat span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.newsletter-box{
+  max-width:780px;
+  margin:auto;
+}
+
+.newsletter h2{
+  font-size:44px;
+  letter-spacing:-2px;
+  line-height:1.05;
+  margin-bottom:15px;
+}
+
+.newsletter p{
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.newsletter-form{
+  max-width:500px;
+  margin:auto;
+  display:flex;
+  gap:8px;
+  padding:6px;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--border);
+  border-radius:15px;
+}
+
+.newsletter-form input{
+  flex:1;
+  min-width:0;
+  border:none;
+  outline:none;
+  background:transparent;
+  color:white;
+  padding:11px 13px;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid var(--border);
+  padding:50px 0 30px;
+  background:#05070a;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:50px;
+  padding-bottom:45px;
+}
+
+.footer-brand p{
+  color:var(--muted);
+  max-width:330px;
+  font-size:13px;
+  margin-top:15px;
+}
+
+.footer-column h4{
+  font-size:13px;
+  margin-bottom:16px;
+}
+
+.footer-column a{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin:9px 0;
+  transition:.2s;
+}
+
+.footer-column a:hover{color:white;}
+
+.copyright{
+  padding-top:25px;
+  border-top:1px solid var(--border);
+  color:#656d7b;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+/* SEARCH */
+
+.search-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(4,6,10,.9);
+  backdrop-filter:blur(15px);
+  z-index:2000;
+  display:none;
+  align-items:flex-start;
+  justify-content:center;
+  padding-top:150px;
+}
+
+.search-overlay.active{display:flex;}
+
+.search-box{width:min(700px,90%);}
+
+.search-box input{
+  width:100%;
+  padding:20px;
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,.15);
+  background:#11151d;
+  color:white;
+  outline:none;
+  font-size:18px;
+}
+
+.close-search{
+  margin-top:12px;
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .nav-links{display:none;}
+
+  .menu-btn{display:block;}
+
+  .featured-grid,
+  .trending-layout,
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .articles-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero{min-height:620px;}
+
+  .hero h1{letter-spacing:-3px;}
+}
+
+@media(max-width:600px){
+
+  .navbar{height:68px;}
+
+  .logo{font-size:20px;}
+
+  .logo-mark{
+    width:31px;
+    height:31px;
+  }
+
+  .hero{
+    padding-top:68px;
+  }
+
+  .hero-content{
+    padding:80px 0;
+  }
+
+  .hero h1{
+    font-size:52px;
+    letter-spacing:-3px;
+  }
+
+  .hero p{font-size:16px;}
+
+  section{padding:60px 0;}
+
+  .section-heading{
+    align-items:flex-start;
+  }
+
+  .section-heading h2{font-size:27px;}
+
+  .featured-card{min-height:390px;}
+
+  .featured-card.small{min-height:210px;}
+
+  .featured-info h3{font-size:24px;}
+
+  .articles-grid{grid-template-columns:1fr;}
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .trending-title{font-size:36px;}
+
+  .about{
+    padding:30px;
+    gap:35px;
+  }
+
+  .about h2{font-size:34px;}
+
+  .newsletter h2{font-size:35px;}
+
+  .newsletter-form{
+    flex-direction:column;
+    background:transparent;
+    border:none;
+  }
+
+  .newsletter-form input{
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px;
+  }
+
+  .newsletter-form .btn{width:100%;}
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:35px 20px;
+  }
+
+  .copyright{flex-direction:column;}
+}
+</style>
 </head>
-
 
 <body>
 
+<header id="header">
+  <div class="container navbar">
 
-  <!-- ========================================================
-       HEADER
-       ======================================================== -->
+    <a href="#" class="logo" aria-label="TechTek101 Home">
+      <div class="logo-mark">T</div>
+      <span>Tech<em>Tek101</em></span>
+    </a>
 
-  <header id="header">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#latest">Latest</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#trending">Trending</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
 
-    <div class="container navbar">
+    <div class="nav-right">
 
-      <a href="#" class="logo" aria-label="TechTek101 Home">
+      <button class="search-btn" id="searchBtn" aria-label="Search TechTek101">
+        ⌕
+      </button>
 
-        <div class="logo-mark">
-          T
-        </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        ☰
+      </button>
 
-        <span>
-          Tech<em>Tek101</em>
-        </span>
-
-      </a>
-
-
-      <nav>
-
-        <ul class="nav-links">
-
-          <li>
-            <a href="#latest">
-              Latest
-            </a>
-          </li>
-
-          <li>
-            <a href="#categories">
-              Categories
-            </a>
-          </li>
-
-          <li>
-            <a href="#trending">
-              Trending
-            </a>
-          </li>
-
-          <li>
-            <a href="#about">
-              About
-            </a>
-          </li>
-
-        </ul>
-
-      </nav>
+    </div>
+  </div>
+</header>
 
 
-      <div class="nav-right">
+<!-- SEARCH -->
 
-        <button
-          class="search-btn"
-          id="searchBtn"
-          aria-label="Search TechTek101"
-        >
-          ⌕
-        </button>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search TechTek101..."
+      aria-label="Search TechTek101"
+    >
+    <div class="close-search">
+      Press ESC to close
+    </div>
+  </div>
+</div>
 
-        <button
-          class="menu-btn"
-          id="menuBtn"
-          aria-label="Open menu"
-        >
-          ☰
-        </button>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-content reveal">
+
+      <div class="eyebrow">
+        <span class="live-dot"></span>
+        The future of tech starts here
+      </div>
+
+      <h1>
+        Technology,
+        <span class="gradient-text">explained.</span>
+      </h1>
+
+      <p>
+        TechTek101 brings you the latest stories,
+        deep dives, reviews and insights from the world
+        of technology — without the unnecessary noise.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="#latest" class="btn btn-primary">
+          Explore latest →
+        </a>
+
+        <a href="#categories" class="btn btn-secondary">
+          Browse topics
+        </a>
 
       </div>
 
     </div>
+  </div>
+</section>
 
-  </header>
+
+<!-- FEATURED -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <div>
+        <h2>Featured stories</h2>
+        <p>The stories everyone is talking about.</p>
+      </div>
+
+      <a href="#latest" class="view-all">
+        View all →
+      </a>
+
+    </div>
 
 
-  <!-- ========================================================
-       SEARCH
-       ======================================================== -->
+    <div class="featured-grid reveal">
 
-  <div
-    class="search-overlay"
-    id="searchOverlay"
-  >
+      <!-- AI -->
 
-    <div class="search-box">
+      <a href="article.html?id=ai-assistants" class="featured-card">
 
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search TechTek101..."
-        aria-label="Search TechTek101"
-      >
+        <div class="fake-image">
+          <svg viewBox="0 0 24 24" aria-label="AI">
+            <path d="M12 2a7 7 0 0 0-7 7v2.5A4.5 4.5 0 0 0 9.5 16H10v3a2 2 0 0 0 4 0v-3h.5A4.5 4.5 0 0 0 19 11.5V9a7 7 0 0 0-7-7zm-3 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+        </div>
 
-      <div class="close-search">
-        Press ESC to close
+        <div class="featured-info">
+
+          <span class="tag">
+            Artificial Intelligence
+          </span>
+
+          <h3>
+            AI is changing the way we work.
+            Here's what comes next.
+          </h3>
+
+          <div class="meta">
+            <span>TechTek101 Editorial</span>
+            <span>•</span>
+            <span>8 min read</span>
+          </div>
+
+        </div>
+      </a>
+
+
+      <div class="featured-stack">
+
+        <!-- APPLE -->
+
+        <a href="article.html?id=apple-next" class="featured-card small">
+
+          <div class="fake-image">
+
+            <svg viewBox="0 0 24 24" aria-label="Apple logo">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.95-2.53 4.08zM12.03 7.25C11.88 5.02 13.69 3.18 15.84 3c.3 2.58-2.32 4.5-3.81 4.25z"/>
+            </svg>
+
+          </div>
+
+          <div class="featured-info">
+
+            <span class="tag">Apple</span>
+
+            <h3>
+              The next generation of Apple devices
+            </h3>
+
+            <div class="meta">
+              <span>5 min read</span>
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- GADGETS -->
+
+        <a href="article.html?id=great-gadget" class="featured-card small">
+
+          <div class="fake-image">⚡</div>
+
+          <div class="featured-info">
+
+            <span class="tag">Gadgets</span>
+
+            <h3>
+              What makes a great everyday gadget?
+            </h3>
+
+            <div class="meta">
+              <span>4 min read</span>
+            </div>
+
+          </div>
+
+        </a>
+
       </div>
 
     </div>
 
   </div>
 
+</section>
 
-  <!-- ========================================================
-       MAIN
-       ======================================================== -->
 
-  <main>
+<!-- LATEST -->
 
+<section id="latest">
 
-    <!-- ======================================================
-         HERO
-         ====================================================== -->
+<div class="container">
 
-    <section class="hero">
+  <div class="section-heading reveal">
 
-      <div class="container">
-
-        <div class="hero-content reveal">
-
-          <div class="eyebrow">
-
-            <span class="live-dot"></span>
-
-            The future of tech starts here
-
-          </div>
-
-
-          <h1>
-
-            Technology,
-
-            <span class="gradient-text">
-              explained.
-            </span>
-
-          </h1>
-
-
-          <p>
-
-            TechTek101 brings you the latest stories,
-            deep dives, reviews and insights from the world
-            of technology — without the unnecessary noise.
-
-          </p>
-
-
-          <div class="hero-actions">
-
-            <a
-              href="#latest"
-              class="btn btn-primary"
-            >
-              Explore latest →
-            </a>
-
-
-            <a
-              href="#categories"
-              class="btn btn-secondary"
-            >
-              Browse topics
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================================
-         FEATURED
-         ====================================================== -->
-
-    <section>
-
-      <div class="container">
-
-        <div class="section-heading reveal">
-
-          <div>
-
-            <h2>
-              Featured stories
-            </h2>
-
-            <p>
-              The stories everyone is talking about.
-            </p>
-
-          </div>
-
-
-          <a
-            href="#latest"
-            class="view-all"
-          >
-            View all →
-          </a>
-
-        </div>
-
-
-        <div class="featured-grid reveal">
-
-
-          <article class="featured-card">
-
-            <div class="fake-image">
-              🤖
-            </div>
-
-            <div class="featured-info">
-
-              <span class="tag">
-                Artificial Intelligence
-              </span>
-
-              <h3>
-                AI is changing the way we work.
-                Here's what comes next.
-              </h3>
-
-              <div class="meta">
-
-                <span>
-                  TechTek101 Editorial
-                </span>
-
-                <span>•</span>
-
-                <span>
-                  8 min read
-                </span>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <div class="featured-stack">
-
-
-            <article class="featured-card small">
-
-              <div class="fake-image">
-                🍎
-              </div>
-
-              <div class="featured-info">
-
-                <span class="tag">
-                  Apple
-                </span>
-
-                <h3>
-                  The next generation of Apple devices
-                </h3>
-
-                <div class="meta">
-                  <span>
-                    5 min read
-                  </span>
-                </div>
-
-              </div>
-
-            </article>
-
-
-            <article class="featured-card small">
-
-              <div class="fake-image">
-                ⚡
-              </div>
-
-              <div class="featured-info">
-
-                <span class="tag">
-                  Gadgets
-                </span>
-
-                <h3>
-                  What makes a great everyday gadget?
-                </h3>
-
-                <div class="meta">
-                  <span>
-                    4 min read
-                  </span>
-                </div>
-
-              </div>
-
-            </article>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================================
-         LATEST
-         ====================================================== -->
-
-    <section id="latest">
-
-      <div class="container">
-
-
-        <div class="section-heading reveal">
-
-          <div>
-
-            <h2>
-              Latest from TechTek101
-            </h2>
-
-            <p>
-              Fresh stories from the world of technology.
-            </p>
-
-          </div>
-
-
-          <a
-            href="#"
-            class="view-all"
-          >
-            See everything →
-          </a>
-
-        </div>
-
-
-        <div class="articles-grid">
-
-
-          <article class="article-card reveal">
-
-            <div class="article-image">
-              🧠
-            </div>
-
-            <div class="article-body">
-
-              <span class="tag">
-                AI
-              </span>
-
-              <h3>
-                Why AI assistants are becoming part of everyday life
-              </h3>
-
-              <p>
-                From work to entertainment, intelligent assistants
-                are changing how we interact with technology.
-              </p>
-
-              <div class="meta">
-                <span>6 min read</span>
-                <span>•</span>
-                <span>Today</span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <article class="article-card reveal">
-
-            <div class="article-image">
-              📱
-            </div>
-
-            <div class="article-body">
-
-              <span class="tag">
-                Mobile
-              </span>
-
-              <h3>
-                The smartphone market is entering a new era
-              </h3>
-
-              <p>
-                Bigger isn't always better. Here's where mobile
-                design could be heading next.
-              </p>
-
-              <div class="meta">
-                <span>5 min read</span>
-                <span>•</span>
-                <span>Today</span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <article class="article-card reveal">
-
-            <div class="article-image">
-              💻
-            </div>
-
-            <div class="article-body">
-
-              <span class="tag">
-                Computing
-              </span>
-
-              <h3>
-                Do you really need a powerful laptop anymore?
-              </h3>
-
-              <p>
-                Modern chips are becoming incredibly efficient.
-                But where does raw performance still matter?
-              </p>
-
-              <div class="meta">
-                <span>7 min read</span>
-                <span>•</span>
-                <span>Yesterday</span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <article class="article-card reveal">
-
-            <div class="article-image">
-              🎧
-            </div>
-
-            <div class="article-body">
-
-              <span class="tag">
-                Audio
-              </span>
-
-              <h3>
-                Why premium headphones sound so different
-              </h3>
-
-              <p>
-                A look at drivers, tuning, codecs and the technology
-                behind modern wireless audio.
-              </p>
-
-              <div class="meta">
-                <span>8 min read</span>
-                <span>•</span>
-                <span>Yesterday</span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <article class="article-card reveal">
-
-            <div class="article-image">
-              🖥️
-            </div>
-
-            <div class="article-body">
-
-              <span class="tag">
-                PC
-              </span>
-
-              <h3>
-                OLED vs Mini-LED: which display technology wins?
-              </h3>
-
-              <p>
-                We break down contrast, brightness, motion and
-                everyday usability.
-              </p>
-
-              <div class="meta">
-                <span>9 min read</span>
-                <span>•</span>
-                <span>2 days ago</span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <article class="article-card reveal">
-
-            <div class="article-image">
-              🚀
-            </div>
-
-            <div class="article-body">
-
-              <span class="tag">
-                Future
-              </span>
-
-              <h3>
-                The technologies that could define the next decade
-              </h3>
-
-              <p>
-                Robotics, AI, spatial computing and more are moving
-                from science fiction toward reality.
-              </p>
-
-              <div class="meta">
-                <span>10 min read</span>
-                <span>•</span>
-                <span>2 days ago</span>
-              </div>
-
-            </div>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================================
-         CATEGORIES
-         ====================================================== -->
-
-    <section id="categories">
-
-      <div class="container">
-
-
-        <div class="section-heading reveal">
-
-          <div>
-
-            <h2>
-              Explore categories
-            </h2>
-
-            <p>
-              Find technology that interests you.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="categories">
-
-
-          <a href="#" class="category reveal">
-
-            <div class="category-icon">
-              🤖
-            </div>
-
-            <span>
-              Artificial Intelligence
-            </span>
-
-          </a>
-
-
-          <a href="#" class="category reveal">
-
-            <div class="category-icon">
-              🍎
-            </div>
-
-            <span>
-              Apple
-            </span>
-
-          </a>
-
-
-          <a href="#" class="category reveal">
-
-            <div class="category-icon">
-              📱
-            </div>
-
-            <span>
-              Android
-            </span>
-
-          </a>
-
-
-          <a href="#" class="category reveal">
-
-            <div class="category-icon">
-              💻
-            </div>
-
-            <span>
-              PC & Laptop
-            </span>
-
-          </a>
-
-
-          <a href="#" class="category reveal">
-
-            <div class="category-icon">
-              🎧
-            </div>
-
-            <span>
-              Audio
-            </span>
-
-          </a>
-
-
-          <a href="#" class="category reveal">
-
-            <div class="category-icon">
-              ⚡
-            </div>
-
-            <span>
-              Gadgets
-            </span>
-
-          </a>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================================
-         TRENDING
-         ====================================================== -->
-
-    <section id="trending">
-
-      <div class="container">
-
-
-        <div class="trending-layout">
-
-
-          <div class="reveal">
-
-            <span class="tag">
-              Trending now
-            </span>
-
-
-            <h2 class="trending-title">
-
-              What tech people are reading right now.
-
-            </h2>
-
-
-            <p class="trending-description">
-
-              Our most-read stories, updated as the conversation
-              around technology evolves.
-
-            </p>
-
-          </div>
-
-
-          <div class="ranking">
-
-
-            <a href="#" class="rank-item reveal">
-
-              <div class="rank-number">
-                01
-              </div>
-
-              <div class="rank-content">
-
-                <h4>
-                  Is AI finally becoming useful for everyone?
-                </h4>
-
-                <span>
-                  Artificial Intelligence
-                </span>
-
-              </div>
-
-              <div class="rank-arrow">
-                →
-              </div>
-
-            </a>
-
-
-            <a href="#" class="rank-item reveal">
-
-              <div class="rank-number">
-                02
-              </div>
-
-              <div class="rank-content">
-
-                <h4>
-                  The best technology you can buy without overspending
-                </h4>
-
-                <span>
-                  Gadgets
-                </span>
-
-              </div>
-
-              <div class="rank-arrow">
-                →
-              </div>
-
-            </a>
-
-
-            <a href="#" class="rank-item reveal">
-
-              <div class="rank-number">
-                03
-              </div>
-
-              <div class="rank-content">
-
-                <h4>
-                  Why laptop battery life keeps getting better
-                </h4>
-
-                <span>
-                  Computing
-                </span>
-
-              </div>
-
-              <div class="rank-arrow">
-                →
-              </div>
-
-            </a>
-
-
-            <a href="#" class="rank-item reveal">
-
-              <div class="rank-number">
-                04
-              </div>
-
-              <div class="rank-content">
-
-                <h4>
-                  OLED displays are everywhere. Here's why.
-                </h4>
-
-                <span>
-                  Displays
-                </span>
-
-              </div>
-
-              <div class="rank-arrow">
-                →
-              </div>
-
-            </a>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================================
-         ABOUT
-         ====================================================== -->
-
-    <section id="about">
-
-      <div class="container">
-
-
-        <div class="about reveal">
-
-
-          <div>
-
-            <span class="tag">
-              About TechTek101
-            </span>
-
-
-            <h2>
-              Technology without the noise.
-            </h2>
-
-
-            <p>
-
-              TechTek101 is built around one simple idea:
-              technology should be easy to understand.
-
-              We cover the products, ideas and innovations
-              shaping the future — while keeping the experience
-              simple, useful and enjoyable.
-
-            </p>
-
-          </div>
-
-
-          <div class="stats">
-
-
-            <div class="stat">
-
-              <strong>
-                24/7
-              </strong>
-
-              <span>
-                Technology coverage
-              </span>
-
-            </div>
-
-
-            <div class="stat">
-
-              <strong>
-                6+
-              </strong>
-
-              <span>
-                Technology categories
-              </span>
-
-            </div>
-
-
-            <div class="stat">
-
-              <strong>
-                100%
-              </strong>
-
-              <span>
-                Independent perspective
-              </span>
-
-            </div>
-
-
-            <div class="stat">
-
-              <strong>
-                ∞
-              </strong>
-
-              <span>
-                Curiosity
-              </span>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================================
-         NEWSLETTER
-         ====================================================== -->
-
-    <section class="newsletter">
-
-      <div class="newsletter-box reveal">
-
-
-        <span class="tag">
-          Stay ahead
-        </span>
-
-
-        <h2>
-          Get the future of tech in your inbox.
-        </h2>
-
-
-        <p>
-
-          No spam. Just the most interesting technology stories,
-          delivered occasionally.
-
-        </p>
-
-
-        <form
-          class="newsletter-form"
-          id="newsletterForm"
-        >
-
-          <input
-            type="email"
-            placeholder="Your email address"
-            required
-          >
-
-
-          <button
-            class="btn btn-primary"
-            type="submit"
-          >
-            Subscribe
-          </button>
-
-        </form>
-
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-  <!-- ========================================================
-       FOOTER
-       ======================================================== -->
-
-  <footer>
-
-    <div class="container">
-
-
-      <div class="footer-grid">
-
-
-        <div class="footer-brand">
-
-
-          <a
-            href="#"
-            class="logo"
-          >
-
-            <div class="logo-mark">
-              T
-            </div>
-
-            <span>
-              Tech<em>Tek101</em>
-            </span>
-
-          </a>
-
-
-          <p>
-
-            Technology, explained.
-
-            Discover the latest ideas,
-            products and innovations shaping
-            our digital world.
-
-          </p>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>
-            Explore
-          </h4>
-
-          <a href="#latest">
-            Latest
-          </a>
-
-          <a href="#trending">
-            Trending
-          </a>
-
-          <a href="#categories">
-            Categories
-          </a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>
-            Topics
-          </h4>
-
-          <a href="#">
-            AI
-          </a>
-
-          <a href="#">
-            Apple
-          </a>
-
-          <a href="#">
-            Android
-          </a>
-
-          <a href="#">
-            Gadgets
-          </a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>
-            TechTek101
-          </h4>
-
-          <a href="#about">
-            About us
-          </a>
-
-          <a href="#">
-            Contact
-          </a>
-
-          <a href="#">
-            Privacy
-          </a>
-
-          <a href="#">
-            Terms
-          </a>
-
-        </div>
-
-
-      </div>
-
-
-      <div class="copyright">
-
-        <span>
-          © 2026 TechTek101. All rights reserved.
-        </span>
-
-        <span>
-          Built for people who love technology.
-        </span>
-
-      </div>
-
-
+    <div>
+      <h2>Latest from TechTek101</h2>
+      <p>Fresh stories from the world of technology.</p>
     </div>
 
-  </footer>
+    <a href="#categories" class="view-all">
+      See everything →
+    </a>
 
+  </div>
 
-  <!-- ========================================================
-       JAVASCRIPT
-       ======================================================== -->
 
-  <script>
+  <div class="articles-grid">
 
-    /* ======================================================
-       SEARCH
-       ====================================================== */
 
-    const searchBtn =
-      document.getElementById("searchBtn");
+    <!-- AI -->
 
-    const searchOverlay =
-      document.getElementById("searchOverlay");
+    <a href="article.html?id=ai-assistants" class="article-card reveal">
 
-    const searchInput =
-      document.getElementById("searchInput");
+      <div class="article-image">
+        🧠
+      </div>
 
+      <div class="article-body">
 
-    searchBtn.addEventListener("click", () => {
+        <span class="tag">AI</span>
 
-      searchOverlay.classList.add("active");
+        <h3>
+          Why AI assistants are becoming part of everyday life
+        </h3>
 
-      setTimeout(() => {
+        <p>
+          From work to entertainment, intelligent assistants
+          are changing how we interact with technology.
+        </p>
 
-        searchInput.focus();
+        <div class="meta">
+          <span>6 min read</span>
+          <span>•</span>
+          <span>Today</span>
+        </div>
 
-      }, 100);
+      </div>
 
-    });
+    </a>
 
 
-    searchOverlay.addEventListener("click", (event) => {
+    <!-- MOBILE -->
 
-      if (event.target === searchOverlay) {
+    <a href="article.html?id=android-era" class="article-card reveal">
 
-        searchOverlay.classList.remove("active");
+      <div class="article-image">
+        📱
+      </div>
 
-      }
+      <div class="article-body">
 
-    });
+        <span class="tag">Mobile</span>
 
+        <h3>
+          The smartphone market is entering a new era
+        </h3>
 
-    document.addEventListener("keydown", (event) => {
+        <p>
+          Bigger isn't always better. Here's where mobile
+          design could be heading next.
+        </p>
 
-      if (event.key === "Escape") {
+        <div class="meta">
+          <span>5 min read</span>
+          <span>•</span>
+          <span>Today</span>
+        </div>
 
-        searchOverlay.classList.remove("active");
+      </div>
 
-      }
+    </a>
 
-    });
 
+    <!-- PC -->
 
-    /* ======================================================
-       MOBILE MENU
-       ====================================================== */
+    <a href="article.html?id=laptop-performance" class="article-card reveal">
 
-    const menuBtn =
-      document.getElementById("menuBtn");
+      <div class="article-image">
+        💻
+      </div>
 
+      <div class="article-body">
 
-    menuBtn.addEventListener("click", () => {
+        <span class="tag">Computing</span>
 
-      const nav =
-        document.querySelector(".nav-links");
+        <h3>
+          Do you really need a powerful laptop anymore?
+        </h3>
 
+        <p>
+          Modern chips are becoming incredibly efficient.
+          But where does raw performance still matter?
+        </p>
 
-      if (nav.style.display === "flex") {
+        <div class="meta">
+          <span>7 min read</span>
+          <span>•</span>
+          <span>Yesterday</span>
+        </div>
 
-        nav.style.display = "";
+      </div>
 
-      } else {
+    </a>
 
-        nav.style.display = "flex";
 
-        nav.style.position = "absolute";
+    <!-- AUDIO -->
 
-        nav.style.top = "68px";
+    <a href="article.html?id=premium-headphones" class="article-card reveal">
 
-        nav.style.left = "4%";
+      <div class="article-image">
+        🎧
+      </div>
 
-        nav.style.right = "4%";
+      <div class="article-body">
 
-        nav.style.flexDirection = "column";
+        <span class="tag">Audio</span>
 
-        nav.style.padding = "20px";
+        <h3>
+          Why premium headphones sound so different
+        </h3>
 
-        nav.style.borderRadius = "15px";
+        <p>
+          A look at drivers, tuning, codecs and the technology
+          behind modern wireless audio.
+        </p>
 
-        nav.style.background = "#11151d";
+        <div class="meta">
+          <span>8 min read</span>
+          <span>•</span>
+          <span>Yesterday</span>
+        </div>
 
-        nav.style.border =
-          "1px solid rgba(255,255,255,.08)";
+      </div>
 
-        nav.style.gap = "18px";
+    </a>
 
-      }
 
-    });
+    <!-- DISPLAY -->
 
+    <a href="article.html?id=oled-miniled" class="article-card reveal">
 
-    /* ======================================================
-       SCROLL REVEAL
-       ====================================================== */
+      <div class="article-image">
+        🖥️
+      </div>
 
-    const revealElements =
-      document.querySelectorAll(".reveal");
+      <div class="article-body">
 
+        <span class="tag">PC</span>
 
-    const revealObserver =
-      new IntersectionObserver(
+        <h3>
+          OLED vs Mini-LED: which display technology wins?
+        </h3>
 
-        (entries) => {
+        <p>
+          We break down contrast, brightness, motion and
+          everyday usability.
+        </p>
 
-          entries.forEach((entry) => {
+        <div class="meta">
+          <span>9 min read</span>
+          <span>•</span>
+          <span>2 days ago</span>
+        </div>
 
-            if (entry.isIntersecting) {
+      </div>
 
-              entry.target.classList.add(
-                "visible"
-              );
+    </a>
 
-              revealObserver.unobserve(
-                entry.target
-              );
 
-            }
+    <!-- FUTURE -->
 
-          });
+    <a href="article.html?id=ai-work" class="article-card reveal">
 
-        },
+      <div class="article-image">
+        🚀
+      </div>
 
-        {
-          threshold: 0.12
-        }
+      <div class="article-body">
 
-      );
+        <span class="tag">Future</span>
 
+        <h3>
+          The technologies that could define the next decade
+        </h3>
 
-    revealElements.forEach((element) => {
+        <p>
+          Robotics, AI, spatial computing and more are moving
+          from science fiction toward reality.
+        </p>
 
-      revealObserver.observe(element);
+        <div class="meta">
+          <span>10 min read</span>
+          <span>•</span>
+          <span>2 days ago</span>
+        </div>
 
-    });
+      </div>
 
+    </a>
 
-    /* ======================================================
-       NEWSLETTER
-       ====================================================== */
+  </div>
+</div>
+</section>
 
-    const newsletterForm =
-      document.getElementById(
-        "newsletterForm"
-      );
 
+<!-- CATEGORIES -->
 
-    newsletterForm.addEventListener(
-      "submit",
-      (event) => {
+<section id="categories">
 
-        event.preventDefault();
+<div class="container">
 
+  <div class="section-heading reveal">
 
-        const button =
-          newsletterForm.querySelector(
-            "button"
-          );
+    <div>
+      <h2>Explore categories</h2>
+      <p>Find technology that interests you.</p>
+    </div>
 
+  </div>
 
-        button.textContent =
-          "Subscribed ✓";
 
+  <div class="categories">
 
-        button.style.background =
-          "linear-gradient(135deg, #43e97b, #38f9d7)";
 
+    <!-- AI -->
 
-        newsletterForm.reset();
+    <a href="category.html?cat=ai" class="category reveal">
 
-      }
-    );
+      <div class="category-icon">
 
+        <svg viewBox="0 0 24 24" aria-label="Artificial Intelligence">
+          <path d="M12 2a7 7 0 0 0-7 7v2.5A4.5 4.5 0 0 0 9.5 16H10v3a2 2 0 0 0 4 0v-3h.5A4.5 4.5 0 0 0 19 11.5V9a7 7 0 0 0-7-7zm-3 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+        </svg>
 
-    /* ======================================================
-       HEADER SCROLL EFFECT
-       ====================================================== */
+      </div>
 
-    window.addEventListener(
-      "scroll",
-      () => {
+      <span>Artificial Intelligence</span>
 
-        const header =
-          document.getElementById("header");
+    </a>
 
 
-        if (window.scrollY > 30) {
+    <!-- APPLE -->
 
-          header.style.background =
-            "rgba(7,9,13,.9)";
+    <a href="category.html?cat=apple" class="category reveal">
 
-        } else {
+      <div class="category-icon">
 
-          header.style.background =
-            "rgba(7,9,13,.72)";
+        <svg viewBox="0 0 24 24" aria-label="Apple logo">
+          <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.95-2.53 4.08zM12.03 7.25C11.88 5.02 13.69 3.18 15.84 3c.3 2.58-2.32 4.5-3.81 4.25z"/>
+        </svg>
 
-        }
+      </div>
 
-      }
-    );
+      <span>Apple</span>
 
-  </script>
+    </a>
+
+
+    <!-- ANDROID -->
+
+    <a href="category.html?cat=android" class="category reveal">
+
+      <div class="category-icon">
+
+        <svg viewBox="0 0 24 24" aria-label="Android logo">
+          <path d="M17.868 6.475l1.516-2.626a.315.315 0 0 0-.115-.43.315.315 0 0 0-.43.115l-1.535 2.66A10.05 10.05 0 0 0 12 4.9c-1.89 0-3.755.45-5.304 1.294L5.16 3.534a.315.315 0 0 0-.545.315l1.516 2.626C3.59 8.007 1.86 10.78 1.86 14h20.28c0-3.22-1.73-5.993-4.272-7.525zM4.5 14.5v5.77c0 .55.45 1 1 1h1.32v1.82a.91.91 0 1 0 1.82 0v-1.82h6.72v1.82a.91.91 0 1 0 1.82 0v-1.82h1.32c.55 0 1-.45 1-1v-5.77H4.5zM8 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+        </svg>
+
+      </div>
+
+      <span>Android</span>
+
+    </a>
+
+
+    <!-- PC -->
+
+    <a href="category.html?cat=pc" class="category reveal">
+
+      <div class="category-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 4H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h6v1H7a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2h-3v-1h6a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 12H4V6h16v10z"/>
+        </svg>
+      </div>
+
+      <span>PC & Laptop</span>
+
+    </a>
+
+
+    <!-- AUDIO -->
+
+    <a href="category.html?cat=audio" class="category reveal">
+
+      <div class="category-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3a9 9 0 0 0-9 9v7a3 3 0 0 0 3 3h2v-9H5v-1a7 7 0 0 1 14 0v1h-3v9h2a3 3 0 0 0 3-3v-7a9 9 0 0 0-9-9z"/>
+        </svg>
+      </div>
+
+      <span>Audio</span>
+
+    </a>
+
+
+    <!-- GADGETS -->
+
+    <a href="category.html?cat=gadgets" class="category reveal">
+
+      <div class="category-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+        </svg>
+      </div>
+
+      <span>Gadgets</span>
+
+    </a>
+
+  </div>
+</div>
+</section>
+
+
+<!-- TRENDING -->
+
+<section id="trending">
+
+<div class="container">
+
+<div class="trending-layout">
+
+  <div class="reveal">
+
+    <span class="tag">Trending now</span>
+
+    <h2 class="trending-title">
+      What tech people are reading right now.
+    </h2>
+
+    <p class="trending-description">
+      Our most-read stories, updated as the conversation
+      around technology evolves.
+    </p>
+
+  </div>
+
+
+  <div class="ranking">
+
+    <a href="article.html?id=ai-assistants" class="rank-item reveal">
+      <div class="rank-number">01</div>
+      <div class="rank-content">
+        <h4>Is AI finally becoming useful for everyone?</h4>
+        <span>Artificial Intelligence</span>
+      </div>
+      <div class="rank-arrow">→</div>
+    </a>
+
+
+    <a href="article.html?id=great-gadget" class="rank-item reveal">
+      <div class="rank-number">02</div>
+      <div class="rank-content">
+        <h4>The best technology you can buy without overspending</h4>
+        <span>Gadgets</span>
+      </div>
+      <div class="rank-arrow">→</div>
+    </a>
+
+
+    <a href="article.html?id=laptop-performance" class="rank-item reveal">
+      <div class="rank-number">03</div>
+      <div class="rank-content">
+        <h4>Why laptop battery life keeps getting better</h4>
+        <span>Computing</span>
+      </div>
+      <div class="rank-arrow">→</div>
+    </a>
+
+
+    <a href="article.html?id=oled-miniled" class="rank-item reveal">
+      <div class="rank-number">04</div>
+      <div class="rank-content">
+        <h4>OLED displays are everywhere. Here's why.</h4>
+        <span>Displays</span>
+      </div>
+      <div class="rank-arrow">→</div>
+    </a>
+
+  </div>
+
+</div>
+</div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about reveal">
+
+  <div>
+
+    <span class="tag">About TechTek101</span>
+
+    <h2>
+      Technology without the noise.
+    </h2>
+
+    <p>
+      TechTek101 is built around one simple idea:
+      technology should be easy to understand.
+
+      We cover the products, ideas and innovations
+      shaping the future — while keeping the experience
+      simple, useful and enjoyable.
+    </p>
+
+  </div>
+
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>24/7</strong>
+      <span>Technology coverage</span>
+    </div>
+
+    <div class="stat">
+      <strong>6+</strong>
+      <span>Technology categories</span>
+    </div>
+
+    <div class="stat">
+      <strong>100%</strong>
+      <span>Independent perspective</span>
+    </div>
+
+    <div class="stat">
+      <strong>∞</strong>
+      <span>Curiosity</span>
+    </div>
+
+  </div>
+
+</div>
+</div>
+</section>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+<div class="newsletter-box reveal">
+
+  <span class="tag">Stay ahead</span>
+
+  <h2>
+    Get the future of tech in your inbox.
+  </h2>
+
+  <p>
+    No spam. Just the most interesting technology stories,
+    delivered occasionally.
+  </p>
+
+  <form class="newsletter-form" id="newsletterForm">
+
+    <input
+      type="email"
+      placeholder="Your email address"
+      required
+    >
+
+    <button class="btn btn-primary" type="submit">
+      Subscribe
+    </button>
+
+  </form>
+
+</div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+  <div class="footer-brand">
+
+    <a href="#" class="logo">
+
+      <div class="logo-mark">T</div>
+
+      <span>
+        Tech<em>Tek101</em>
+      </span>
+
+    </a>
+
+    <p>
+      Technology, explained.
+
+      Discover the latest ideas,
+      products and innovations shaping
+      our digital world.
+    </p>
+
+  </div>
+
+
+  <div class="footer-column">
+
+    <h4>Explore</h4>
+
+    <a href="#latest">Latest</a>
+    <a href="#trending">Trending</a>
+    <a href="#categories">Categories</a>
+
+  </div>
+
+
+  <div class="footer-column">
+
+    <h4>Topics</h4>
+
+    <a href="category.html?cat=ai">AI</a>
+    <a href="category.html?cat=apple">Apple</a>
+    <a href="category.html?cat=android">Android</a>
+    <a href="category.html?cat=gadgets">Gadgets</a>
+
+  </div>
+
+
+  <div class="footer-column">
+
+    <h4>TechTek101</h4>
+
+    <a href="#about">About us</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+
+  </div>
+
+</div>
+
+
+<div class="copyright">
+
+  <span>
+    © 2026 TechTek101. All rights reserved.
+  </span>
+
+  <span>
+    Built for people who love technology.
+  </span>
+
+</div>
+
+</div>
+</footer>
+
+
+<script>
+
+/* SEARCH */
+
+const searchBtn=document.getElementById("searchBtn");
+const searchOverlay=document.getElementById("searchOverlay");
+const searchInput=document.getElementById("searchInput");
+
+searchBtn.addEventListener("click",()=>{
+  searchOverlay.classList.add("active");
+
+  setTimeout(()=>{
+    searchInput.focus();
+  },100);
+});
+
+searchOverlay.addEventListener("click",(event)=>{
+  if(event.target===searchOverlay){
+    searchOverlay.classList.remove("active");
+  }
+});
+
+document.addEventListener("keydown",(event)=>{
+  if(event.key==="Escape"){
+    searchOverlay.classList.remove("active");
+  }
+});
+
+
+/* MOBILE MENU */
+
+const menuBtn=document.getElementById("menuBtn");
+
+menuBtn.addEventListener("click",()=>{
+
+  const nav=document.querySelector(".nav-links");
+
+  if(nav.style.display==="flex"){
+
+    nav.style.display="";
+
+  }else{
+
+    nav.style.display="flex";
+    nav.style.position="absolute";
+    nav.style.top="68px";
+    nav.style.left="4%";
+    nav.style.right="4%";
+    nav.style.flexDirection="column";
+    nav.style.padding="20px";
+    nav.style.borderRadius="15px";
+    nav.style.background="#11151d";
+    nav.style.border="1px solid rgba(255,255,255,.08)";
+    nav.style.gap="18px";
+
+  }
+});
+
+
+/* SCROLL REVEAL */
+
+const revealElements=document.querySelectorAll(".reveal");
+
+const revealObserver=new IntersectionObserver(
+
+(entries)=>{
+
+  entries.forEach((entry)=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add("visible");
+
+      revealObserver.unobserve(entry.target);
+
+    }
+
+  });
+
+},
+
+{threshold:.12}
+
+);
+
+revealElements.forEach((element)=>{
+  revealObserver.observe(element);
+});
+
+
+/* NEWSLETTER */
+
+const newsletterForm=document.getElementById("newsletterForm");
+
+newsletterForm.addEventListener("submit",(event)=>{
+
+  event.preventDefault();
+
+  const button=newsletterForm.querySelector("button");
+
+  button.textContent="Subscribed ✓";
+
+  button.style.background=
+    "linear-gradient(135deg,#43e97b,#38f9d7)";
+
+  newsletterForm.reset();
+
+});
+
+
+/* HEADER SCROLL */
+
+window.addEventListener("scroll",()=>{
+
+  const header=document.getElementById("header");
+
+  if(window.scrollY>30){
+
+    header.style.background="rgba(7,9,13,.9)";
+
+  }else{
+
+    header.style.background="rgba(7,9,13,.72)";
+
+  }
+
+});
+
+</script>
 
 </body>
 </html>
