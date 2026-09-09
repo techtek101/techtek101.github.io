@@ -25,13 +25,35 @@
       padding: 80px 24px;
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: white;
-      text-decoration: none;
-    }
+   .logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-.8px;
+  text-decoration:none;
+}
 
+.logo-mark{
+  width:35px;
+  height:35px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#6c63ff,#00d4ff);
+  color:white;
+  font-size:16px;
+  font-weight:900;
+  box-shadow:0 0 25px rgba(108,99,255,.35);
+}
+
+.logo span{color:white;}
+
+.logo em{
+  color:#00d4ff;
+  font-style:normal;
+}
     .back {
       display: inline-block;
       margin-top: 50px;
@@ -69,7 +91,7 @@
 
   <div class="container">
 
-    <a href="index.html" class="logo">TechTek101</a>
+    <a href="index.html" class="logo" aria-label="TechTek101 Home">   <div class="logo-mark">T</div>   <span>Tech<em>Tek101</em></span> </a>
 
     <h1>
       Technology<br>
