@@ -18,7 +18,7 @@ const articles = {
 
     read: "5 min read",
 
-    image: "",
+    image: "assets/Apple-iPhone-18-Pro-2up-260909_inline.jpg.large.jpg",
 
     icon: `
       <svg viewBox="0 0 24 24" fill="currentColor">
