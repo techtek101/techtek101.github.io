@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,15 +34,18 @@
         0 20px 60px rgba(0,0,0,.35);
     }
 
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
+
 
     body {
       font-family:
@@ -74,10 +76,12 @@
       min-height: 100vh;
     }
 
+
     a {
       color: inherit;
       text-decoration: none;
     }
+
 
     .container {
       width: min(92%, var(--max-width));
@@ -106,6 +110,7 @@
         1px solid rgba(255,255,255,.05);
     }
 
+
     .navbar {
       height: 76px;
 
@@ -113,6 +118,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
 
     .logo {
       display: flex;
@@ -124,6 +130,7 @@
 
       letter-spacing: -.8px;
     }
+
 
     .logo-mark {
       width: 35px;
@@ -150,10 +157,12 @@
         0 0 25px rgba(108,99,255,.35);
     }
 
+
     .logo em {
       color: var(--accent-2);
       font-style: normal;
     }
+
 
     .nav-links {
       display: flex;
@@ -166,6 +175,7 @@
       font-size: 14px;
       font-weight: 600;
     }
+
 
     .nav-links a:hover {
       color: white;
@@ -180,6 +190,7 @@
       padding-top: 76px;
     }
 
+
     .category-hero {
       padding:
         100px 0 70px;
@@ -187,6 +198,7 @@
       position: relative;
       overflow: hidden;
     }
+
 
     .category-hero::before {
       content: "";
@@ -207,10 +219,12 @@
       filter: blur(120px);
     }
 
+
     .category-content {
       position: relative;
       z-index: 2;
     }
+
 
     .back {
       display: inline-block;
@@ -223,11 +237,35 @@
       margin-bottom: 30px;
     }
 
-    .category-icon {
-      font-size: 55px;
 
-      margin-bottom: 15px;
+    /* =========================
+       CATEGORY ICON
+       ========================= */
+
+    .category-icon {
+      width: 65px;
+      height: 65px;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      margin-bottom: 20px;
+
+      color: white;
     }
+
+
+    .category-icon svg {
+      width: 58px;
+      height: 58px;
+
+      display: block;
+
+      fill: currentColor;
+      stroke: currentColor;
+    }
+
 
     .category-hero h1 {
       font-size:
@@ -239,6 +277,7 @@
 
       margin-bottom: 22px;
     }
+
 
     .category-hero p {
       max-width: 680px;
@@ -258,6 +297,7 @@
         20px 0 100px;
     }
 
+
     .section-heading {
       display: flex;
       justify-content: space-between;
@@ -266,17 +306,20 @@
       margin-bottom: 30px;
     }
 
+
     .section-heading h2 {
       font-size: 30px;
 
       letter-spacing: -1px;
     }
 
+
     .section-heading span {
       color: var(--muted);
 
       font-size: 13px;
     }
+
 
     .articles-grid {
       display: grid;
@@ -286,6 +329,7 @@
 
       gap: 20px;
     }
+
 
     .article-card {
       background:
@@ -301,6 +345,7 @@
       transition: .3s;
     }
 
+
     .article-card:hover {
       transform:
         translateY(-6px);
@@ -315,14 +360,13 @@
         var(--shadow);
     }
 
+
     .article-image {
       height: 210px;
 
       display: grid;
 
       place-items: center;
-
-      font-size: 65px;
 
       background:
         radial-gradient(
@@ -335,11 +379,24 @@
           #181d2b,
           #0d1118
         );
+
+      color: white;
     }
+
+
+    .article-image svg {
+      width: 65px;
+      height: 65px;
+
+      fill: currentColor;
+      stroke: currentColor;
+    }
+
 
     .article-body {
       padding: 22px;
     }
+
 
     .tag {
       display: inline-block;
@@ -362,6 +419,7 @@
       margin-bottom: 12px;
     }
 
+
     .article-body h3 {
       font-size: 19px;
 
@@ -372,6 +430,7 @@
       margin-bottom: 10px;
     }
 
+
     .article-body p {
       color: var(--muted);
 
@@ -381,6 +440,7 @@
 
       margin-bottom: 18px;
     }
+
 
     .meta {
       display: flex;
@@ -408,6 +468,7 @@
         #05070a;
     }
 
+
     .footer-inner {
       display: flex;
 
@@ -418,11 +479,13 @@
       gap: 20px;
     }
 
+
     .footer-inner p {
       color: #656d7b;
 
       font-size: 12px;
     }
+
 
     .footer-links {
       display: flex;
@@ -430,11 +493,13 @@
       gap: 20px;
     }
 
+
     .footer-links a {
       color: var(--muted);
 
       font-size: 12px;
     }
+
 
     .footer-links a:hover {
       color: white;
@@ -577,7 +642,6 @@
 
   <main>
 
-
     <section class="category-hero">
 
       <div class="container category-content">
@@ -593,9 +657,7 @@
         <div
           class="category-icon"
           id="categoryIcon"
-        >
-          🤖
-        </div>
+        ></div>
 
 
         <h1 id="categoryTitle">
@@ -684,6 +746,72 @@
 
   <script>
 
+    /* =========================
+       SVG ICONS
+       ========================= */
+
+    const icons = {
+
+      ai: `
+        <svg viewBox="0 0 24 24" aria-label="AI">
+          <path
+            d="M12 2a3 3 0 0 0-3 3v1H7a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h2v2a1 1 0 0 0 2 0v-2h2v2a1 1 0 0 0 2 0v-2h2a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h-2V5a3 3 0 0 0-3-3Zm-1 4V5a1 1 0 0 1 2 0v1h-2Zm-4 3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V9Zm2 1v2h2v-2H9Zm4 0v2h2v-2h-2Z"
+          />
+        </svg>
+      `,
+
+
+      apple: `
+        <svg viewBox="0 0 24 24" aria-label="Apple">
+          <path
+            d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.95-2.53 4.08zM12.03 7.25C11.88 5.02 13.69 3.18 15.84 3c.3 2.58-2.32 4.5-3.81 4.25z"
+          />
+        </svg>
+      `,
+
+
+      android: `
+        <svg viewBox="0 0 24 24" aria-label="Android">
+          <path
+            d="M17.87 6.47l1.51-2.62a.32.32 0 0 0-.55-.32l-1.53 2.66A10.08 10.08 0 0 0 12 4.9c-1.9 0-3.76.45-5.3 1.29L5.16 3.53a.32.32 0 0 0-.55.32l1.52 2.62C3.59 8 1.86 10.78 1.86 14h20.28c0-3.22-1.73-6-4.27-7.53ZM7 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm12 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM4.5 15v5.27c0 .55.45 1 1 1h1.32v1.82a.91.91 0 1 0 1.82 0v-1.82h6.72v1.82a.91.91 0 1 0 1.82 0v-1.82h1.32c.55 0 1-.45 1-1V15h-15Z"
+          />
+        </svg>
+      `,
+
+
+      pc: `
+        <svg viewBox="0 0 24 24" aria-label="PC">
+          <path
+            d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6v2h2a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2h2v-2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v10h16V6H4Z"
+          />
+        </svg>
+      `,
+
+
+      audio: `
+        <svg viewBox="0 0 24 24" aria-label="Audio">
+          <path
+            d="M12 3a7 7 0 0 0-7 7v5a2 2 0 0 0 2 2h2v-6H7v-1a5 5 0 0 1 10 0v1h-2v6h2a2 2 0 0 0 2-2v-5a7 7 0 0 0-7-7Zm-4 9h1v4H8v-4Zm8 0h1v4h-1v-4Z"
+          />
+        </svg>
+      `,
+
+
+      gadgets: `
+        <svg viewBox="0 0 24 24" aria-label="Gadgets">
+          <path
+            d="M13 2 4 13h6l-1 9 9-11h-6l1-9Zm-1.1 6.2-.35 2.8H14l-2.9 3.55.35-2.8H8.1l3.8-3.55Z"
+          />
+        </svg>
+      `
+
+    };
+
+
+    /* =========================
+       CATEGORIES
+       ========================= */
+
     const categories = {
 
       ai: {
@@ -692,7 +820,7 @@
           "Artificial Intelligence",
 
         icon:
-          "🤖",
+          icons.ai,
 
         description:
           "Explore the latest ideas, breakthroughs and stories shaping the world of artificial intelligence."
@@ -706,7 +834,7 @@
           "Apple",
 
         icon:
-          "🍎",
+          icons.apple,
 
         description:
           "Everything Apple — from iPhone and Mac to software, chips and the future of the ecosystem."
@@ -720,7 +848,7 @@
           "Android",
 
         icon:
-          "📱",
+          icons.android,
 
         description:
           "The latest Android phones, software, features and technologies shaping the mobile world."
@@ -734,7 +862,7 @@
           "PC & Laptop",
 
         icon:
-          "💻",
+          icons.pc,
 
         description:
           "Laptops, desktops, processors, displays and everything happening in modern computing."
@@ -748,7 +876,7 @@
           "Audio",
 
         icon:
-          "🎧",
+          icons.audio,
 
         description:
           "Headphones, earbuds, speakers, codecs and the technology behind great sound."
@@ -762,7 +890,7 @@
           "Gadgets",
 
         icon:
-          "⚡",
+          icons.gadgets,
 
         description:
           "Smart gadgets and everyday technology designed to make life easier, smarter and more enjoyable."
@@ -772,12 +900,16 @@
     };
 
 
+    /* =========================
+       ARTICLES
+       ========================= */
+
     const articles = [
 
       {
         id: "ai-assistants",
         category: "ai",
-        icon: "🧠",
+        icon: icons.ai,
         title:
           "Why AI assistants are becoming part of everyday life",
         excerpt:
@@ -792,7 +924,7 @@
       {
         id: "ai-work",
         category: "ai",
-        icon: "🤖",
+        icon: icons.ai,
         title:
           "AI is changing the way we work. Here's what comes next.",
         excerpt:
@@ -807,7 +939,7 @@
       {
         id: "apple-next",
         category: "apple",
-        icon: "🍎",
+        icon: icons.apple,
         title:
           "The next generation of Apple devices",
         excerpt:
@@ -822,7 +954,7 @@
       {
         id: "android-era",
         category: "android",
-        icon: "📱",
+        icon: icons.android,
         title:
           "The smartphone market is entering a new era",
         excerpt:
@@ -837,7 +969,7 @@
       {
         id: "laptop-performance",
         category: "pc",
-        icon: "💻",
+        icon: icons.pc,
         title:
           "Do you really need a powerful laptop anymore?",
         excerpt:
@@ -852,7 +984,7 @@
       {
         id: "oled-miniled",
         category: "pc",
-        icon: "🖥️",
+        icon: icons.pc,
         title:
           "OLED vs Mini-LED: which display technology wins?",
         excerpt:
@@ -867,7 +999,7 @@
       {
         id: "premium-headphones",
         category: "audio",
-        icon: "🎧",
+        icon: icons.audio,
         title:
           "Why premium headphones sound so different",
         excerpt:
@@ -882,7 +1014,7 @@
       {
         id: "great-gadget",
         category: "gadgets",
-        icon: "⚡",
+        icon: icons.gadgets,
         title:
           "What makes a great everyday gadget?",
         excerpt:
@@ -906,13 +1038,18 @@
       );
 
 
-    const categoryKey =
+    const requestedCategory =
       params.get("cat") || "ai";
 
 
+    const categoryKey =
+      categories[requestedCategory]
+        ? requestedCategory
+        : "ai";
+
+
     const category =
-      categories[categoryKey] ||
-      categories.ai;
+      categories[categoryKey];
 
 
     /* =========================
@@ -926,7 +1063,7 @@
 
     document.getElementById(
       "categoryIcon"
-    ).textContent =
+    ).innerHTML =
       category.icon;
 
 
@@ -975,9 +1112,11 @@
             "a"
           );
 
+
         card.href =
           "article.html?id=" +
           article.id;
+
 
         card.className =
           "article-card";
@@ -1032,4 +1171,3 @@
 
 </body>
 </html>
-```
