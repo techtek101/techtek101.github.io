@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,8 @@
       --text: #f5f7fb;
       --muted: #9ca3b4;
       --border: rgba(255,255,255,0.08);
-      --accent: #7c5cff;
+      --accent: #6c63ff;
+      --accent-2: #00d4ff;
       --max-width: 1100px;
       --shadow: 0 25px 80px rgba(0,0,0,0.35);
     }
@@ -69,15 +71,48 @@
       gap: 30px;
     }
 
+    /* =========================
+       LOGO — SAME AS INDEX.HTML
+    ========================= */
+
     .logo {
-      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 23px;
       font-weight: 800;
       letter-spacing: -0.8px;
       white-space: nowrap;
     }
 
+    .logo-mark {
+      width: 35px;
+      height: 35px;
+      border-radius: 10px;
+
+      display: grid;
+      place-items: center;
+
+      background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent-2)
+      );
+
+      color: white;
+      font-size: 16px;
+      font-weight: 900;
+
+      box-shadow: 0 0 25px rgba(108,99,255,.35);
+    }
+
     .logo span {
-      color: var(--accent);
+      color: white;
+    }
+
+    .logo em {
+      color: var(--accent-2);
+      font-style: normal;
     }
 
     .nav-links {
@@ -446,6 +481,15 @@
         padding: 0 17px;
       }
 
+      .logo {
+        font-size: 20px;
+      }
+
+      .logo-mark {
+        width: 31px;
+        height: 31px;
+      }
+
       .nav-links {
         display: none;
       }
@@ -494,8 +538,14 @@
 <header>
   <nav class="nav">
 
-    <a href="index.html" class="logo">
-      Tech<span>Tek</span>101
+    <a href="index.html" class="logo" aria-label="TechTek101 Home">
+
+      <div class="logo-mark">T</div>
+
+      <span>
+        Tech<em>Tek101</em>
+      </span>
+
     </a>
 
     <div class="nav-links">
@@ -745,3 +795,4 @@
 
 </body>
 </html>
+```
